@@ -1,10 +1,10 @@
-import { FC } from 'react';
-import { ReactSVG } from 'react-svg';
-import Link from 'next/link';
+import { Price } from '@/components/base/price/price';
 import { useAuth } from '@/core/auth/client/use-auth';
 import { useCartStore } from '@/stores/cart';
-import { Price } from '@/components/base/price/price';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { FC } from 'react';
+import { ReactSVG } from 'react-svg';
 
 export const ShoppingCartSection: FC = () => {
     const { user } = useAuth();
@@ -16,14 +16,10 @@ export const ShoppingCartSection: FC = () => {
 
     if (!user) {
         return (
-            <>
+            <div className='bg-white-opaque p-2 rounded-md'>
+                <div className='w-4 h-4 bg-zinc-200 absolute rounded-full -mt-3 ml-5'></div>
                 <ReactSVG src="/icons/shopping-cart.svg" className='text-white dark:text-accent-foreground' />
-                <div className="ml-4 flex-col">
-                    <span className="text-xs uppercase text-muted-foreground">
-                        {t('not-logged')}
-                    </span>
-                </div>
-            </>
+            </div>
         );
     }
 

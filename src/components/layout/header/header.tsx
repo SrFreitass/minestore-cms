@@ -1,33 +1,31 @@
 'use client';
 
-import { FC } from 'react';
-import { Navbar } from '@layout/navbar/navbar';
-import Image from 'next/image';
-import { TSettings } from '@/types/settings';
-import { HeroSection } from './sections/hero-section';
 import { Container } from '@/components/base/container/container';
-import { convertToLocalCurrency } from '@helpers/convert-to-local-currency';
-import { getModifiedCacheBuster } from '@helpers/cache-buster';
 import { useCurrencyStore } from '@/stores/currency';
 import { useUserStore } from '@/stores/user';
+import { TSettings } from '@/types/settings';
+import { getModifiedCacheBuster } from '@helpers/cache-buster';
+import { convertToLocalCurrency } from '@helpers/convert-to-local-currency';
+import { Navbar } from '@layout/navbar/navbar';
+import Image from 'next/image';
 import Link from 'next/link';
+import { FC } from 'react';
+import { HeroSection } from './sections/hero-section';
 
-import './Header.css';
 import { Progress } from '@/components/ui/progress';
-import HeroParticles from './particles';
+import './Header.css';
 
 type HeaderProps = {
     settings: TSettings;
     particles: string;
 };
 
-export const Header: FC<HeaderProps> = ({ settings, particles }) => {
+export const Header: FC<HeaderProps> = ({ settings }) => {
     const { user } = useUserStore();
     const cacheBuster = getModifiedCacheBuster(5);
 
     return (
         <header className="relative">
-            {particles === 'Enabled' ? <HeroParticles /> : null}
 
             <div className="absolute inset-0 -z-20 h-[525px] w-full">
                 <div className="hero-image before:bg-primary/20 dark:before:bg-transparent">

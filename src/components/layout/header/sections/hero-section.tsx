@@ -1,13 +1,14 @@
-import { FC, useCallback, useEffect, useState } from 'react';
-import { ReactSVG } from 'react-svg';
+import Logo from '@/../public/logo.png';
+import { getEndpoints } from '@/api';
+import { notify } from '@/core/notifications';
+import { TSettings } from '@/types/settings';
+import { getCacheBuster } from '@helpers/cache-buster';
+import axios from 'axios';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import axios from 'axios';
-import { getEndpoints } from '@/api';
-import { TSettings } from '@/types/settings';
-import { useTranslations } from 'next-intl';
-import { notify } from '@/core/notifications';
-import { getCacheBuster } from '@helpers/cache-buster';
+import { FC, useCallback, useEffect, useState } from 'react';
+import { ReactSVG } from 'react-svg';
 
 const { discordWidget, getServerOnline } = getEndpoints(axios);
 
@@ -96,9 +97,10 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
                 <Link href="/">
                     <Image
                         className="levitate mx-4 h-[338px] w-[381px]"
-                        src={`${process.env.NEXT_PUBLIC_API_URL}/img/logo.png?${cacheBuster}`}
-                        width={381}
-                        height={338}
+                        src={Logo}
+                        width={325}
+                        height={316}
+                        quality={100}
                         alt="Logo"
                     />
                 </Link>

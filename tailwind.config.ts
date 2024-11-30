@@ -59,6 +59,7 @@ const config = {
                 }
             }),
             colors: {
+                'white-opaque': 'rgba(255, 255, 255, 0.45)',
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',

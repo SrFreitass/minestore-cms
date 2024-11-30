@@ -21,7 +21,7 @@ const nextConfig = {
             },
             {
                 hostname: 'qr.sepay.vn'
-            }
+            },
         ],
         minimumCacheTTL: 30
     },

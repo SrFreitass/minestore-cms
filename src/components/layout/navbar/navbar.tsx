@@ -1,23 +1,46 @@
 'use client';
 
-import { FC } from 'react';
 import { TSettings } from '@/types/settings';
-
-import { CurrencySection } from './sections/currency-section';
-import { LanguageSection } from './sections/language-section';
+import { FC } from 'react';
 import { ShoppingCartSection } from './sections/shopping-cart-section';
-import { UserSection } from './sections/user-section';
 
-import { Divider } from './components/divider';
+
 
 type NavbarProps = {
     settings: TSettings;
 };
 
-export const Navbar: FC<NavbarProps> = ({ settings }) => {
+export const Navbar: FC<NavbarProps> = () => {
     return (
-        <nav className="z-20 h-[63px] w-full flex-row items-center justify-center bg-[url(/navbar.png)] px-9 md:mx-auto md:w-fit md:rounded-[10px]">
-            <div className="hidden items-center md:flex">
+        <nav className="z-20 h-[63px] w-full flex-row items-center max-w-[650px] mx-auto">
+           <ul className='flex justify-around items-center font-bold text-white w-full'>
+              <div className='flex gap-8'>
+                  <li>
+                     Equipe
+                  </li>
+
+                  <li>
+                     Investidor
+                  </li>
+              </div>
+
+              <li>
+                 Loja
+              </li>
+
+              <div className='flex gap-8'>
+                  <li>
+                     Wiki
+                  </li>
+
+                  <li>
+                     Parceiros
+                  </li>
+              </div>
+
+              <ShoppingCartSection />
+           </ul>
+          {/* <div className="hidden items-center md:flex">
                 <CurrencySection settings={settings} />
                 <Divider />
             </div>
@@ -25,9 +48,8 @@ export const Navbar: FC<NavbarProps> = ({ settings }) => {
                 <LanguageSection settings={settings} />
                 <Divider />
             </div>
-            <ShoppingCartSection />
             <Divider />
-            <UserSection />
+            <UserSection /> */}
         </nav>
     );
 };
