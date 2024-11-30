@@ -30,6 +30,7 @@ import { getCustomPage } from './endpoints/get-custom-page';
 import { removeGiftcard } from './endpoints/remove-giftcard';
 import { acceptReferral } from './endpoints/accept-referral';
 import { removeReferral } from './endpoints/remove-referral';
+import { getAvalations } from './endpoints/get-avaliations';
 
 export const getEndpoints = (fetcher: AxiosInstance) => {
     return {
@@ -38,6 +39,7 @@ export const getEndpoints = (fetcher: AxiosInstance) => {
         inGameAuth: inGameAuth(fetcher),
         getUser: getUser(fetcher),
         getCategoryDetails: getCategoryDetails(fetcher),
+        getAvalations: getAvalations(fetcher),
         getSettings: getSettings(fetcher),
         getCategories: getCategories(fetcher),
         getCart: getCart(fetcher),

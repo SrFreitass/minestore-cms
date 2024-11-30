@@ -27,8 +27,8 @@ export const ProfileView: FC<ProfileViewProps> = ({ profile }) => {
 
    return (
       <div className="flex-col rounded-[10px] bg-card p-6 pb-0  w-[40rem]">
-            <h2 className="text-2xl font-bold text-white dark:text-accent-foreground text-start">
-               {t('title')} <span className='text-orange text-2xl font-bold'>{profile.username}</span>
+            <h2 className="text-2xl font-bold text-start">
+               <span className='text-white'>{t('title')}</span> <span className='text-orange text-2xl font-bold'>{profile.username}</span>
             </h2>
 
 
@@ -46,14 +46,14 @@ export const ProfileView: FC<ProfileViewProps> = ({ profile }) => {
                <div className='flex flex-col gap-2 text-xl'>
                   <div className='flex gap-2 items-center'>
                      <ReactSVG src='/icons/control-game.svg'/>
-                     <span className="font-medium text-accent-foreground">
+                     <span className="font-medium text-white">
                         {t('registration-date')}
                      </span>
                      <span className='font-semibold text-green-400'>{profile.created.split('.')[0]}</span>
                   </div>
                   <div className="flex gap-2 items-center">
                      <ReactSVG src='/icons/control-game.svg'/>
-                     <span className="font-medium text-accent-foreground">
+                     <span className="font-medium text-white">
                         {t('money-spent')}
                      </span>
                      <Price value={profile.money_spent} className="font-semibold"/>

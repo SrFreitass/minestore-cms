@@ -1,5 +1,7 @@
 /** @type {import("next").NextConfig} */
 
+const { hostname } = require("os");
+
 const removeProtocol = (url) => {
     return url.replace(/(^\w+:|^)\/\//, '');
 };
@@ -22,6 +24,10 @@ const nextConfig = {
             {
                 hostname: 'qr.sepay.vn'
             },
+            // dev environment
+            {
+                hostname: '*'
+            }
         ],
         minimumCacheTTL: 30
     },

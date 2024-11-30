@@ -90,7 +90,7 @@ const config = {
                 },
                 accent: {
                     DEFAULT: 'hsl(var(--accent))',
-                    foreground: 'hsl(var(--accent-foreground))'
+                    foreground: 'hsl(var(--orange))'
                 },
                 accent2: {
                     DEFAULT: 'hsl(var(--accent-2))'

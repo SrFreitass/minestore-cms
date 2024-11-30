@@ -23,11 +23,11 @@ export const SumMenuItem: FC<SubMenuItemProps> = ({ name, url }) => {
                 className={joinClasses(
                     'h-7 w-1 rounded-r-lg transition-all',
                     isActive
-                        ? 'bg-primary'
+                        ? 'text-orange'
                         : 'bg-accent-foreground/60 group-hover:bg-accent-foreground'
                 )}
             />
-            <span className="ml-4">{name}</span>
+            <span className="ml-4 font-bold">{name}</span>
         </Link>
     );
 };

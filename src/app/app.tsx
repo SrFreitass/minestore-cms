@@ -16,11 +16,12 @@ import { Toaster } from 'react-hot-toast';
 import { ConfigProvider } from './providers/config-provider';
 import { ThemeProvider } from './providers/theme-provider';
 
-const { getUser, getSettings, getCategories } = getEndpoints(fetcher);
+const { getUser, getSettings, getCategories, getAvalations } = getEndpoints(fetcher);
 
 export const App: FC<PropsWithChildren> = async ({ children }) => {
     const settings = await getSettings();
     const categories = await getCategories();
+    const avalations = await getAvalations().catch(() => undefined);
 
     const user = await getUser().catch(() => undefined);
 
@@ -47,7 +48,7 @@ export const App: FC<PropsWithChildren> = async ({ children }) => {
                         <Suspense>
                             <Header settings={settings} particles={particles} />
                             <Container className="mt-4 flex-col items-start gap-5 lg:flex-row">
-                                <Sidebar settings={settings} categories={categories} />
+                                <Sidebar settings={settings} categories={categories} avalations={avalations || []}/>
                                 <main className="w-full flex-1 overflow-x-auto">{children}</main>
                             </Container>
                             <Footer settings={settings} />

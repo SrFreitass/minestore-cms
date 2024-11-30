@@ -56,7 +56,7 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
                 onClick={handleClick}
                 className={joinClasses(
                     "before:content-[' '] h-20 flex-row items-center bg-accent before:absolute before:-m-6 before:h-10 before:w-1.5 before:rounded-r-lg before:bg-accent before:transition-all hover:text-accent-foreground hover:before:bg-accent-foreground",
-                    { 'before:bg-primary': isActive }
+                    { 'before:bg-orange': isActive },
                 )}
             >
                 <CategoryImage image={image as string} isPageLink={isPageLink} />
@@ -99,7 +99,7 @@ function CategoryImage({ image, isPageLink }: { image: string; isPageLink?: bool
     if (isPageLink) {
         if (image.startsWith('http')) {
             return (
-                <div className="flex size-20 border-r border-accent-foreground/10">
+                <div className="flex size-20">
                     <Image
                         src={image}
                         className="m-auto h-[64px] w-[64px] object-contain"
@@ -115,7 +115,7 @@ function CategoryImage({ image, isPageLink }: { image: string; isPageLink?: bool
 
         return (
             <div
-                className="flex size-20 border-r border-accent-foreground/10"
+                className="flex size-20"
                 dangerouslySetInnerHTML={{ __html: svg }}
             ></div>
         );
@@ -123,7 +123,7 @@ function CategoryImage({ image, isPageLink }: { image: string; isPageLink?: bool
 
     if (image.startsWith('/icons/home.svg')) {
         return (
-            <div className="flex size-20 border-r border-accent-foreground/10 text-primary">
+            <div className="flex size-20 text-primary">
                 <ReactSVG
                     src={image}
                     className="m-auto h-[64px] w-[64px] object-contain"
@@ -138,7 +138,7 @@ function CategoryImage({ image, isPageLink }: { image: string; isPageLink?: bool
     }
 
     return (
-        <div className="flex size-20 border-r border-accent-foreground/10">
+        <div className="flex size-20">
             <Image
                 src={image}
                 className="m-auto h-[64px] w-[64px] object-contain"

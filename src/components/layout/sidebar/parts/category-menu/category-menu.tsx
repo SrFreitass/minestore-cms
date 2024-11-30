@@ -20,13 +20,15 @@ export const CategoryMenu: FC<CategoryMenuProps> = ({ categories }) => {
     return (
         <aside className="h-fit rounded-[10px] bg-card p-6">
             <ul className="space-y-8">
-                <MenuItem name={t('home')} image="/icons/home.svg" url="/" />
+                
 
                 {categories.map((category) => (
                     <MenuItem
                         key={category.idx}
                         name={category.name}
-                        image={imagePath(category.img) ? `${imagePath(category.img)}?${cacheBuster}` : null}
+                        // Mock
+                        // image={imagePath(category.img) ? `${imagePath(category.img)}?${cacheBuster}` : null}
+                        image={category.img}
                         url={`/categories/${category.url}`}
                         subItems={category.subcategories}
                     />

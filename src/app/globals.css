@@ -21,6 +21,9 @@
     }
 
     :root {
+        --orange: 36, 100%, 61%;
+
+
         --background: 0 0% 95%;
         --foreground: 20 14.3% 4.1%;
         --card: 0 0% 100%;
@@ -148,4 +151,9 @@ body {
     syntax: '<angle>';
     initial-value: 0deg;
     inherits: false;
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    color: hsl(var(--accent-foreground));
+    transform: scale(0.4);
 }
