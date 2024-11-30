@@ -121,8 +121,8 @@
     "profile": {
         "title": "Perfil",
         "information": "Informações",
-        "registration-date": "Data de Registro:",
-        "money-spent": "Dinheiro Gasto:",
+        "registration-date": "Registrado desde",
+        "money-spent": "Contribuído",
         "recent-purchases": "Compras Recentes"
     },
     "notifications": {

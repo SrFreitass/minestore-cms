@@ -15,6 +15,7 @@ import { HeroSection } from './sections/hero-section';
 import { Progress } from '@/components/ui/progress';
 import { ReactSVG } from 'react-svg';
 import './Header.css';
+import { LanguageSection } from '@layout/navbar/sections/language-section';
 
 type HeaderProps = {
     settings: TSettings;
@@ -73,7 +74,7 @@ export const Header: FC<HeaderProps> = ({ settings }) => {
                        <ReactSVG src={settings.header_info?.icon || '/icons/bell.svg' } />
                        {settings.header_info?.info || 'PROMOÇÃO DE INAUGURAÇÃO | DESCONTOS de até 99% OFF por TEMPO ILIMITADO!'}
                     </div>
-
+                    <LanguageSection settings={settings}/>
                     {user && (
                         <>
                             <div className="relative ml-auto mr-8 flex-col text-right">
@@ -141,6 +142,7 @@ function DonationGoal({ goal }: { goal: TSettings['goals'] }) {
             </div>
 
             <Progress value={percent} className="h-2" />
+            
         </div>
     );
 }
