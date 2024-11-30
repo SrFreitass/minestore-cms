@@ -58,6 +58,9 @@ const config = {
                     }
                 }
             }),
+            dropShadow: {
+               'orange': '0 0 1.5rem hsl(36, 100%, 61%)'
+            },
             colors: {
                 'white-opaque': 'rgba(255, 255, 255, 0.45)',
                 border: 'hsl(var(--border))',
@@ -65,6 +68,9 @@ const config = {
                 ring: 'hsl(var(--ring))',
                 background: 'hsl(var(--background))',
                 foreground: 'hsl(var(--foreground))',
+               'orange': 'hsl(36, 100%, 61%)',
+
+
                 primary: {
                     DEFAULT: 'hsl(var(--primary))',
                     foreground: 'hsl(var(--primary-foreground))'

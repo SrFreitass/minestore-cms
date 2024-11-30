@@ -80,15 +80,18 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
         <div className="relative w-full flex-row items-center justify-center">
             <div
                 onClick={handleCopyServerIP}
-                className="-mt-20 hidden cursor-pointer items-center gap-2 transition duration-300 hover:scale-110 lg:flex"
+                className="-mt-20 hidden cursor-pointer items-center gap-2 transition duration-300 hover:scale-110 lg:flex font-semibold"
             >
-                <ReactSVG className="h-12 w-12 text-primary" src="/icons/play.svg" />
+                <div className="flex flex-col items-center justify-center relative">
+                   <ReactSVG className="h-full w-full flex justify-center" src="/icons/discord-button.svg" />
+                   <div className="h-1 w-1/2 bg-orange rounded-md drop-shadow-orange absolute mt-[54px]"/>
+                </div>
                 <div className="ml-0.5 flex-col">
-                    <span className="text-lg font-bold text-white dark:text-accent-foreground">
-                        {settings.server.ip}
+                    <span className="text-base font-bold text-orange">
+                        Junte-se a comunidade
                     </span>
-                    <span className="text-sm text-white/80 dark:text-foreground">
-                        {serverOnline} {t('players-online')}
+                    <span className="text-sm text-white/75">
+                        1.000+ membros disponíveis
                     </span>
                 </div>
             </div>
@@ -108,17 +111,20 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
 
             <Link
                 href={settings.discord_url}
-                className="-mt-20 hidden items-center transition duration-300 hover:scale-110 lg:flex"
+                className="-mt-20 hidden items-center gap-2 transition duration-300 hover:scale-110 lg:flex flex-row-reverse font-semibold"
             >
                 <div className="ml-0.5 flex-col">
-                    <span className="text-lg font-bold text-white dark:text-accent-foreground">
+                    <span className="text-base font-bold text-orange">
                         {t('discord-server')}
                     </span>
-                    <span className="text-sm text-white/80 dark:text-foreground">
+                    <span className="text-sm text-white/75">
                         {discordOnline} {t('members-online')}
                     </span>
                 </div>
-                <ReactSVG className="h-12 w-12 text-primary" src="/icons/discord.svg" />
+                <div className="flex flex-col items-center justify-center relative">
+                   <ReactSVG className="h-full w-full flex justify-center" src="/icons/discord-button.svg" />
+                   <div className="h-1 w-1/2 bg-orange rounded-md drop-shadow-orange absolute mt-[54px]"/>
+                </div>
             </Link>
         </div>
     );
