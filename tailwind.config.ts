@@ -62,6 +62,7 @@ const config = {
                'orange': '0 0 1.5rem hsl(36, 100%, 61%)'
             },
             colors: {
+                'royal-red': '#E74955',
                 'white-opaque': 'rgba(255, 255, 255, 0.45)',
                 border: 'hsl(var(--border))',
                 input: 'hsl(var(--input))',

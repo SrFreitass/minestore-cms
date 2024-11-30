@@ -99,4 +99,15 @@ export type TSettings = {
       title: string;
       description: string;
    };
-};
+
+   team: {
+        members: Array<{
+            name: string;
+            role: string;
+            avatar: string;
+        }>
+        role_colors: {
+            [key: string]: string;
+        }
+    };
+}
