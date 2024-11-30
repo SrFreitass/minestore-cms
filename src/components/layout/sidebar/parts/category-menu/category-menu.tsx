@@ -18,7 +18,7 @@ export const CategoryMenu: FC<CategoryMenuProps> = ({ categories }) => {
     const cacheBuster = getCacheBuster();
 
     return (
-        <aside className="h-fit rounded-[10px] bg-card p-6">
+        <aside className="h-fit rounded-[10px] bg-card p-6 border-border border-2">
             <ul className="space-y-8">
                 
 

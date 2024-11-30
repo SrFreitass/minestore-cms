@@ -32,7 +32,7 @@ export const ExtraWidget: FC<ExtraWidgetProps> = ({ settings, avalations }) => {
 
     return (
         <>
-            <div className="mt-4 hidden w-full rounded-[10px] bg-card p-8 lg:block">
+            <div className="mt-4 hidden w-full rounded-[10px] bg-card p-8 lg:block border-border border-2">
                 <h2 className='text-orange font-extrabold text-2xl text-center'>Avaliações</h2>
 
                 <Swiper 

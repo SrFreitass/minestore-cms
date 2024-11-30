@@ -1,5 +1,6 @@
 'use client';
 
+
 import IndexBanner from '@/../public/index-banner.png';
 import { Button } from '@/components/ui/button';
 import { useSettingsStore } from '@/stores/settings';
@@ -12,7 +13,7 @@ export function Content() {
     const { settings } = useSettingsStore();
 
     return (
-        <div className="mt-8 space-y-6">
+        <div className="mt-2 space-y-6">
             <BannerSection />
 
             <div>
@@ -43,6 +44,7 @@ function BannerSection() {
     const t = useTranslations('home');
 
     const cacheBuster = getCacheBuster();
+
 
     return (
         <div className="w-full">

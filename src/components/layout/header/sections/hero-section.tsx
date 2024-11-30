@@ -80,7 +80,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
         <div className="relative w-full flex-row items-center justify-center">
             <div
                 onClick={handleCopyServerIP}
-                className="-mt-20 hidden cursor-pointer items-center gap-2 transition duration-300 hover:scale-110 lg:flex font-semibold"
+                className="-mt-20 cursor-pointer flex justify-center items-center gap-2 transition duration-300 hover:scale-110 font-semibold translate-y-20"
             >
                 <div className="flex flex-col items-center justify-center relative">
                    <ReactSVG className="h-full w-full flex justify-center" src="/icons/discord-button.svg" />
@@ -111,7 +111,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
 
             <Link
                 href={settings.discord_url}
-                className="-mt-20 hidden items-center gap-2 transition duration-300 hover:scale-110 lg:flex flex-row-reverse font-semibold"
+                className="-mt-20 hidden items-center gap-2 transition duration-300 hover:scale-110 lg:flex flex-row-reverse font-semibold translate-y-20"
             >
                 <div className="ml-0.5 flex-col">
                     <span className="text-base font-bold text-orange">

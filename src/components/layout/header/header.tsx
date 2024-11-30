@@ -32,30 +32,13 @@ export const Header: FC<HeaderProps> = ({ settings }) => {
             <div className="absolute inset-0 -z-20 h-[525px] w-full">
                 <div className="hero-image before:bg-primary/20 dark:before:bg-transparent">
                     <Image
-                        src={`/background.jpg?${cacheBuster}`}
+                        src={`/background.svg`}
                         className="absolute -z-10 h-full w-full object-cover opacity-60"
                         width={1590}
                         height={352}
                         alt=""
                     />
-                    <svg
-                        className="absolute inset-0 top-[280px] z-[-1] h-full w-full"
-                        viewBox="0 0 1440 224"
-                        fill="none"
-                        preserveAspectRatio="xMidYMid slice"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            d="M720 90.7C960 85 1200 43 1320 21.3L1440 0V224H1320C1200 224 960 224 720 224V90.7Z"
-                            fill="hsl(var(--background))"
-                            fillOpacity="1"
-                        />
-                        <path
-                            d="M720 90.7C480 85 240 43 120 21.3L0 0V224H120C240 224 480 224 720 224V90.7Z"
-                            fill="hsl(var(--background))"
-                            fillOpacity="1"
-                        />
-                    </svg>
+              
                 </div>
             </div>
 
@@ -74,7 +57,7 @@ export const Header: FC<HeaderProps> = ({ settings }) => {
                        <ReactSVG src={settings.header_info?.icon || '/icons/bell.svg' } />
                        {settings.header_info?.info || 'PROMOÇÃO DE INAUGURAÇÃO | DESCONTOS de até 99% OFF por TEMPO ILIMITADO!'}
                     </div>
-                    <LanguageSection settings={settings}/>
+                
                     {user && (
                         <>
                             <div className="relative ml-auto mr-8 flex-col text-right">

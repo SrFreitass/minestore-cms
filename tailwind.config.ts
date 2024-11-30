@@ -64,7 +64,7 @@ const config = {
             colors: {
                 'royal-red': '#E74955',
                 'white-opaque': 'rgba(255, 255, 255, 0.45)',
-                border: 'hsl(var(--border))',
+                'border': 'hsl(var(--border-card))',
                 input: 'hsl(var(--input))',
                 ring: 'hsl(var(--ring))',
                 background: 'hsl(var(--background))',
@@ -100,8 +100,8 @@ const config = {
                     foreground: 'hsl(var(--popover-foreground))'
                 },
                 card: {
-                    DEFAULT: 'hsl(var(--card))',
-                    foreground: 'hsl(var(--card-foreground))'
+                    DEFAULT: 'hsl(var(--bg-card))',
+                    foreground: 'hsl(var(--bg-card))'
                 }
             },
             borderRadius: {

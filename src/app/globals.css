@@ -23,8 +23,11 @@
     :root {
         --orange: 36, 100%, 61%;
 
+        --background: 0 0% 6%;
 
-        --background: 0 0% 95%;
+        --bg-card: 0 0% 9%;
+        --border-card: 235 16% 15%;
+
         --foreground: 20 14.3% 4.1%;
         --card: 0 0% 100%;
         --card-foreground: 20 14.3% 4.1%;
@@ -49,7 +52,7 @@
 
     .dark {
         --hue: 27;
-
+        
         --background: var(--hue) 65% 4%;
         --foreground: var(--hue) 10% 97.5%;
 
@@ -156,4 +159,8 @@ body {
 .swiper-button-next::after, .swiper-button-prev::after {
     color: hsl(var(--accent-foreground));
     transform: scale(0.4);
+}
+
+body {
+    background-color: var(--background) !important;
 }
