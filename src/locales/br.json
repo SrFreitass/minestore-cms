@@ -37,6 +37,7 @@
     },
     "recent-purchases": "Pagamentos Recentes",
     "home": {
+        "title": "Ultimas notícias",
         "welcome": "Bem-vindo à Loja Oficial do MinestoreCMS!",
         "welcome-description": "Para começar a comprar, selecione uma categoria na barra lateral. Observe que os cargos têm uma taxa única e são permanentes.",
         "featured-packages": "PACOTES EM DESTAQUE",

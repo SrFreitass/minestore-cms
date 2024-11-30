@@ -93,4 +93,10 @@ export type TSettings = {
       icon: string;
       info: string;
    };
+
+   last_news: {
+      banner: string;
+      title: string;
+      description: string;
+   };
 };
