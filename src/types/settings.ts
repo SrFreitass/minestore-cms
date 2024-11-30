@@ -88,4 +88,9 @@ export type TSettings = {
         code: string;
         name: string;
     };
+
+   header_info: {
+      icon: string;
+      info: string;
+   };
 };

@@ -1,7 +1,3 @@
-import { FC, useState } from 'react';
-import { TSettings } from '@/types/settings';
-import { useCurrencyStore } from '@/stores/currency';
-import { useTranslations } from 'next-intl';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -10,8 +6,12 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useCurrencyStore } from '@/stores/currency';
+import { TSettings } from '@/types/settings';
+import { ChevronDown } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { FC, useState } from 'react';
 
 type CurrencySectionProps = {
     settings: TSettings;

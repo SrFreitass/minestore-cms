@@ -13,6 +13,7 @@ import { FC } from 'react';
 import { HeroSection } from './sections/hero-section';
 
 import { Progress } from '@/components/ui/progress';
+import { ReactSVG } from 'react-svg';
 import './Header.css';
 
 type HeaderProps = {
@@ -64,11 +65,14 @@ export const Header: FC<HeaderProps> = ({ settings }) => {
             </div>
 
             <Container>
-                <div className="relative flex h-[110px] items-center bg-primary/20 px-5">
+                <div className="relative flex h-[3.5rem] items-center bg-primary/20 px-5 mt-20">
                     <div className="absolute inset-0 -z-10 size-full rounded-md bg-primary"></div>
-                    <div className="absolute inset-0 -z-10 size-full rounded-md bg-[url(/bg.jpg)] bg-cover opacity-20"></div>
+                    <div className="absolute inset-0 -z-10 size-full rounded-md bg-cover opacity-20"></div>
 
-                    <DonationGoal goal={settings.goals} />
+                    <div className='w-full flex justify-center items-center gap-2 font-semibold text-white'>
+                       <ReactSVG src={settings.header_info?.icon || '/icons/bell.svg' } />
+                       {settings.header_info?.info || 'PROMOÇÃO DE INAUGURAÇÃO | DESCONTOS de até 99% OFF por TEMPO ILIMITADO!'}
+                    </div>
 
                     {user && (
                         <>
