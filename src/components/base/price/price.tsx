@@ -3,6 +3,8 @@ import { useCurrencyStore } from '@/stores/currency';
 import { useSettingsStore } from '@/stores/settings';
 import { convertToLocalCurrency } from '@helpers/convert-to-local-currency';
 import { cn } from '@/lib/utils';
+import { ReactSVG } from 'react-svg';
+import Image from 'next/image';
 
 type PriceProps = {
     value: number;
@@ -41,12 +43,15 @@ const PriceTag: FC<PriceTagProps> = ({
     const hasDiscountOrOriginalPrice = discount || originalPrice;
     const effectivePrice = originalPrice || price + (discount || 0);
 
+    // delete this line in production
+    currency = 'R$';
+
     if (isVirtual) {
-        displayPrice = `${price} ${settings?.virtual_currency}`;
+        displayPrice = `${settings?.virtual_currency}`;
     } else if (price > 0) {
-        displayPrice = `${price.toFixed(2)} ${currency}`;
+        displayPrice = `${price.toFixed(2)}`;
         discountedPrice = hasDiscountOrOriginalPrice
-            ? `${effectivePrice.toFixed(2)} ${currency}`
+            ? `${effectivePrice.toFixed(2)}`
             : null;
     }
 
@@ -54,12 +59,32 @@ const PriceTag: FC<PriceTagProps> = ({
          <p className={className}>
             {(discountedPrice && discountedPrice !== displayPrice) ? (
                <>
-                  <s className="text-red-400 line-through">{discountedPrice}</s>
-                  <span className="text-purple-700">{displayPrice}</span>
+                    <div className='flex gap-1'>
+                        <s className="text-zinc-600 line-through flex flex-row-reverse">
+                            {currency} {effectivePrice.toFixed(2).replace('.', ',')}
+                        </s>
+                        <div className={`relative flex justify-center items-center`}>
+                            <p className='absolute text-red-500 font-bold ml-2 mt-1'>-{discount}%</p>
+                            <Image src='/media/discount-card.svg' width={55} height={20} alt=''/>
+                        </div>
+                    </div>
+                    <span className="text-xl text-white font-bold">
+                        <span className='text-base font-medium'>
+                            {currency}
+                        </span>
+                        {' '}
+                        {displayPrice.replace('.', ',')}
+                    </span>
                </>
             ) : (
                <>
-                  <span className={cn('text-purple-700', className)}>{displayPrice}</span>
+                   <span className="text-xl text-white font-bold">
+                        <span className='text-base font-medium'>
+                            {currency}
+                        </span>
+                        {' '}
+                        {displayPrice.replace('.', ',')}
+                    </span>
                </>
             )}
          </p>
@@ -98,7 +123,8 @@ export const VariablePrice: FC<VariablePriceProps> = ({ value }) => {
 
    return (
       <span>
-         {localPrice} {localCurrencyName}
+         {localPrice} 
+         {localCurrencyName}
       </span>
    );
 };

@@ -2,7 +2,7 @@ import { useCartActions } from '@/app/(pages)/categories/utils/use-cart-actions'
 import { Button } from '@/components/ui/button';
 import { TItem } from '@/types/item';
 import { joinClasses } from '@helpers/join-classes';
-import { InfoIcon, Trash2, ShoppingCart, Loader2 } from 'lucide-react';
+import { InfoIcon, Trash2, ShoppingCart, Loader2, Plus } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -34,24 +34,12 @@ export function CardActions({
     return (
         <div
             className={joinClasses(
-                'flex items-center justify-center gap-2',
-                direction === 'col' && 'mt-auto grid grid-cols-[50px,1fr]',
+                'flex items-center gap-2',
+                direction === 'col' && 'mt-auto grid',
                 hideButton && direction === 'col' && 'w-full grid-cols-[1fr]',
-                direction === 'row' && 'grid grid-cols-[50px,1fr] md:flex'
+                direction === 'row' && 'grid md:flex'
             )}
         >
-            {!hideButton ? (
-                <Button
-                    aria-label="Info"
-                    onClick={() => setShowModal(true)}
-                    variant="secondary"
-                    size="icon"
-                    className="h-[50px] w-[50px]"
-                >
-                    <InfoIcon size={24} aria-hidden={true} />
-                </Button>
-            ) : null}
-
             <CardActionButtons
                 isItemInCart={isItemInCart}
                 item={item}
@@ -142,7 +130,7 @@ function AddToCartButton({
             className={joinClasses('h-[50px] gap-2', !displayFull && 'min-w-[180px]')}
         >
             <ButtonIcon isItemInCart={isItemInCart} loading={loading} />
-            {actionText}
+            {isAvailable ? 'Adicionar ao carrinho' : 'Indisponível'}
         </Button>
     );
 }
@@ -239,5 +227,5 @@ export function ButtonIcon({
         return <Trash2 aria-hidden={true} size={24} />;
     }
 
-    return <ShoppingCart aria-hidden={true} size={24} />;
+    return <Plus aria-hidden={true} size={24} />;
 }

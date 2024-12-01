@@ -5,7 +5,7 @@ import { TItem } from '@/types/item';
 import { imagePath } from '@helpers/image-path';
 import { joinClasses } from '@helpers/join-classes';
 import { getModifiedCacheBuster } from '@helpers/cache-buster';
-import { AlertTriangle, Check } from 'lucide-react';
+import { AlertTriangle, BadgeCheck, Check, Clock, Stamp } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -28,7 +28,23 @@ export function CardHeader({ item, direction }: CardHeaderProps) {
     return (
         <div className={cardHeaderClasses}>
             <FeaturedBadge item={item} className={direction === 'row' ? 'absolute -top-4' : ''} />
-
+            {
+                item.most_popular ? <div className='relative bottom-10'>
+                    <Badge variant="success" className="mx-auto w-max px-4 py-2 bg-purple flex gap-1 hover:bg-purple">
+                        <BadgeCheck size={22} />
+                        <h2 className='text-base font-bold'>Mais popular</h2>
+                    </Badge>
+                </div> : null
+            }
+            {
+                item.last_units ?  
+                <div className='relative bottom-10'>
+                    <Badge variant="success" className="mx-auto w-max px-4 py-2 bg-red-500 flex gap-1 hover:bg-red-500">
+                        <Clock size={22} />
+                        <h2 className='text-base font-bold'>{item.last_units} itens restantes</h2>
+                    </Badge>
+                </div> : null
+            }
             {direction === 'col' ? <QuantityBadge item={item} /> : null}
 
             <CardHeaderImage
@@ -44,7 +60,7 @@ export function CardHeader({ item, direction }: CardHeaderProps) {
                   discount={item.discount}
                     value={price}
                     isVirtual={isPriceVirtual}
-                    className={`flex items-center gap-2 text-base font-bold ${direction === 'col' ? 'justify-center' : ''}`}
+                    className={`flex flex-col items-center text-base ${direction === 'col' ? 'justify-center' : ''}`}
                 />
             </div>
         </div>
@@ -114,7 +130,8 @@ function CardHeaderImage({
     if (!image) return null;
 
     const cacheBuster = getModifiedCacheBuster(5);
-    const imageWithCacheBuster = `${image}?${cacheBuster}`;
+    // const imageWithCacheBuster = `${image}?${cacheBuster}`;
+    const imageWithCacheBuster = item.image;
 
     const imageSize = direction === 'row' ? 64 : 140;
 

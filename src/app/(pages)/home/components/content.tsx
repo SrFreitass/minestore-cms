@@ -17,8 +17,8 @@ export function Content() {
             <BannerSection />
 
             <div>
-               <h2 className='text-2xl font-bold text-white'>{t('title')}</h2>
-               <div className='h-[5px] w-20 bg-purple-600 rounded-md'/>
+               <h2 className='text-2xl font-bold text-white'>Ultimas notícias</h2>
+               <div className='h-[5px] w-20 bg-purple rounded-md'></div>
             </div>
 
             <div

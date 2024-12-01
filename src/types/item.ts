@@ -11,8 +11,10 @@ export type TItem = {
     id: number;
     featured: boolean;
     is_unavailable: boolean;
-
+    
     // Optional properties with clear types
+    most_popular?: boolean;
+    last_units?: number;
     allow_select_server?: boolean;
     allowed_servers?: string[];
     virtual_price?: number | null;
