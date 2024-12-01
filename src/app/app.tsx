@@ -53,7 +53,25 @@ export const App: FC<PropsWithChildren> = async ({ children }) => {
                             </Container>
                             <Footer settings={settings} />
                             <Init settings={settings} />
-                            <Toaster position="top-right" reverseOrder={false} />
+                            <Toaster position="top-right" reverseOrder={false} toastOptions={{
+                                custom: {
+                                    style: {
+                                        background: '#333',
+                                        color: '#fff',
+                                    }
+                                },
+                                style: {
+                                    background: '#333',
+                                    color: '#fff',
+                                },
+                                success: {
+                                    duration: 5000,
+                                },
+                                error: {
+                                    duration: 5000,
+                                },
+                            }} 
+                            />
                         </Suspense>
                     </LocaleProvider>
                 </AuthProvider>

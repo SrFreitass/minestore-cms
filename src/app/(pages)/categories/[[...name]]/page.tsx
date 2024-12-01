@@ -1,12 +1,12 @@
-import { fetcher } from '@/api/server/fetcher';
 import { getEndpoints } from '@/api';
+import { fetcher } from '@/api/server/fetcher';
+import { TCategory, TSubCategory } from '@/types/category-details';
+import { TItem } from '@/types/item';
 import { joinClasses } from '@helpers/join-classes';
 import { Alert } from '@layout/alert/alert';
-import { TCategory, TSubCategory } from '@/types/category-details';
-import { Comparison } from '../comparison/comparasion';
-import { TItem } from '@/types/item';
 import { Card } from '@layout/card/card';
 import { Suspense } from 'react';
+import { Comparison } from '../comparison/comparasion';
 import { SkeletonCategory } from '../components/skeleton-category';
 
 const { getCategoryDetails } = getEndpoints(fetcher);
@@ -120,6 +120,7 @@ function ProductListContainer({ items, category, subcategory }: TProductListCont
                     item={item}
                     direction={categoryListing ? 'row' : 'col'}
                     className={joinClasses({ 'w-full': categoryListing })}
+                    isCash={!category.is_comparison}
                 />
             ))}
         </div>

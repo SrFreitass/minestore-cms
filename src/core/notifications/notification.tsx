@@ -1,17 +1,18 @@
 import { joinClasses } from '@helpers/join-classes';
+import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
+import toast, { Toast } from 'react-hot-toast';
 import { TLevel } from './level';
-import toast, { Toast, CheckmarkIcon } from 'react-hot-toast';
-import { XCircle } from 'lucide-react';
 
 type NotificationProps = {
     id: string;
     message: string;
     level: TLevel;
+    customIcon?: string;
     t?: Toast;
 };
 
-export const Notification: FC<NotificationProps> = ({ id, message, level }) => {
+export const Notification: FC<NotificationProps> = ({ id, message, level, customIcon }) => {
     const styles = {
         defaults: {
             container: 'rounded w-96 py-4 px-6 border-b-4 flex-row text-white'
@@ -21,10 +22,10 @@ export const Notification: FC<NotificationProps> = ({ id, message, level }) => {
             container: 'bg-gray-600/70 border-gray-900'
         },
         red: {
-            container: 'bg-red-900/70 border-red-900'
+            container: 'bg-[#FF4949]'
         },
         green: {
-            container: 'bg-green-900/70 border-green-900'
+            container: 'bg-[#67C05F]'
         }
     };
 
@@ -48,7 +49,7 @@ export const Notification: FC<NotificationProps> = ({ id, message, level }) => {
         'opacity-0 scale-50': isEntering,
         'opacity-100 scale-100': !isEntering && !isLeaving,
         'opacity-0 scale-75': isLeaving,
-        'transition-all duration-150': isEntering || isLeaving
+        'transition-all duration-150': isEntering || isLeaving,
     });
 
     return (
@@ -57,13 +58,19 @@ export const Notification: FC<NotificationProps> = ({ id, message, level }) => {
             className={joinClasses(
                 styles.defaults.container,
                 styles[level].container,
-                transitionClassNames
+                transitionClassNames,
+                'rounded-3xl drop-shadow-none'
             )}
         >
-            {level === 'green' && <CheckmarkIcon />}
+            {level === 'green' && 
+            (customIcon ?
+            <Image src={customIcon} alt='' width={24} height={24}/> 
+            : <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-circle-check-big"><path d="M21.801 10A10 10 0 1 1 17 3.335"/><path d="m9 11 3 3L22 4"/></svg>)
+            }
+
             {level === 'red' && (
                 <div className="text-2xl">
-                    <XCircle />
+                    {customIcon ? <Image src={customIcon} alt='' width={24} height={24}/> : <Image src="/icons/control-game.svg" alt='' width={24} height={24}/>}
                 </div>
             )}
             <span className="ml-4 font-bold">{message}</span>

@@ -2,10 +2,10 @@ import { Price } from '@/components/base/price/price';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { TItem } from '@/types/item';
+import { getModifiedCacheBuster } from '@helpers/cache-buster';
 import { imagePath } from '@helpers/image-path';
 import { joinClasses } from '@helpers/join-classes';
-import { getModifiedCacheBuster } from '@helpers/cache-buster';
-import { AlertTriangle, BadgeCheck, Check, Clock, Stamp } from 'lucide-react';
+import { BadgeCheck, Check, Clock } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -27,20 +27,14 @@ export function CardHeader({ item, direction, setShowModal }: CardHeaderProps) {
         'relative flex flex-col items-center justify-center'
     );
 
+    
+
     return (
         <div className={cardHeaderClasses} onClick={() => setShowModal(true)}>
-            <FeaturedBadge item={item} className={direction === 'row' ? 'absolute -top-4' : ''} />
-            {
-                item.most_popular ? <div className='relative bottom-10'>
-                    <Badge variant="success" className="mx-auto w-max px-4 py-2 bg-purple flex gap-1 hover:bg-purple">
-                        <BadgeCheck size={22} />
-                        <h2 className='text-base font-bold'>Mais popular</h2>
-                    </Badge>
-                </div> : null
-            }
+            <FeaturedBadge item={item} className="absolute -top-8" />
             {
                 item.last_units ?  
-                <div className='relative bottom-10'>
+                <div className='relative bottom-8'>
                     <Badge variant="success" className="mx-auto w-max px-4 py-2 bg-red-500 flex gap-1 hover:bg-red-500">
                         <Clock size={22} />
                         <h2 className='text-base font-bold'>{item.last_units} itens restantes</h2>
@@ -110,7 +104,7 @@ function QuantityBadge({ item, className }: { item: TItem; className?: string })
                 variant="destructive"
                 className={joinClasses('mx-auto max-w-[220px] justify-center gap-2 p-2', className)}
             >
-                <AlertTriangle size={16} />
+                <Clock size={16} />
                 <p>
                     {quantityLeft} {t('items-left')}
                 </p>

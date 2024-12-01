@@ -8,12 +8,11 @@ import {
     DialogHeader,
     DialogTitle
 } from '@/components/ui/dialog';
-import { ScrollArea } from '@/components/ui/scroll-area';
 import { useCartStore } from '@/stores/cart';
 import { TItem } from '@/types/item';
 import { CardActionButtons } from '@layout/card/card-actions';
-import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
+import { FC, useEffect, useState } from 'react';
 
 const { getItem } = getEndpoints(fetcher);
 
@@ -46,7 +45,7 @@ export const ItemDetails: FC<DetailsProps> = ({ show, onHide, id, route }) => {
     return (
         <Dialog open={show} onOpenChange={onHide}>
             <DialogContent className="w-full max-w-[800px] bg-[#25262F]">
-                <DialogHeader className="border-b border-accent p-4 py-6">
+                <DialogHeader className="">
                     <DialogTitle className="text-card-foreground text-white">{details?.name}</DialogTitle>
                 </DialogHeader>
                 <div className='flex items-start gap-6'>
@@ -67,7 +66,7 @@ export const ItemDetails: FC<DetailsProps> = ({ show, onHide, id, route }) => {
                     </div>
                 </div>
     
-                <DialogFooter className="items-center justify-between gap-2 border-t border-accent p-4 sm:justify-between">
+                <DialogFooter className="items-center justify-between gap-2 sm:justify-between">
                     <Price
                         value={details?.price || 0}
                         isVirtual={details?.is_virtual_currency_only}
