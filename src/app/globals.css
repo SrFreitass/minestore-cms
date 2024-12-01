@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Monocraft';
+    src: url('./../fonts/Monocraft-SemiBold.woff');
+}
+
 @layer base {
     * {
         @apply border-border;
@@ -48,6 +53,8 @@
         --input: 20 5.9% 90%;
         --ring: var(--hue) 95% 53.1%;
         --radius: 0.5rem;
+
+        --font-minecraft: 'Monocraft', sans-serif;
     }
 
     .dark {

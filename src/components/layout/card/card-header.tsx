@@ -12,9 +12,10 @@ import Image from 'next/image';
 type CardHeaderProps = {
     item: TItem;
     direction?: 'row' | 'col';
+    setShowModal: (show: boolean) => void;
 };
 
-export function CardHeader({ item, direction }: CardHeaderProps) {
+export function CardHeader({ item, direction, setShowModal }: CardHeaderProps) {
     const price = item.is_virtual_currency_only ? item.virtual_price || 0 : item.price;
     const isPriceVirtual = item.is_virtual_currency_only;
 
@@ -22,11 +23,12 @@ export function CardHeader({ item, direction }: CardHeaderProps) {
         'gap-4',
         direction === 'col' && 'grid mt-auto',
         direction === 'col' && !item.image && 'mt-auto',
-        direction === 'row' && 'flex-col md:flex-row items-center'
+        direction === 'row' && 'flex-col md:flex-row items-center',
+        'relative flex flex-col items-center justify-center'
     );
 
     return (
-        <div className={cardHeaderClasses}>
+        <div className={cardHeaderClasses} onClick={() => setShowModal(true)}>
             <FeaturedBadge item={item} className={direction === 'row' ? 'absolute -top-4' : ''} />
             {
                 item.most_popular ? <div className='relative bottom-10'>
@@ -130,8 +132,11 @@ function CardHeaderImage({
     if (!image) return null;
 
     const cacheBuster = getModifiedCacheBuster(5);
-    // const imageWithCacheBuster = `${image}?${cacheBuster}`;
-    const imageWithCacheBuster = item.image;
+    let imageWithCacheBuster = `${image}?${cacheBuster}`;
+    console.log(imageWithCacheBuster);
+
+    // delete this line in production
+    imageWithCacheBuster = 'https://s3-alpha-sig.figma.com/img/9280/a618/5a2bce247fc75a6b21e4b878ee20c885?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=gY9oy377rR~m6vjZdocR1y4xiwmyIO8pCIHTydzWjLYg6IHNu3jgtJCuwX~kkaLvS8~1hzOCNWgmiP87jtXZC4FGqdWJTKv~cR~edmNgRyRXcemRmXGKu4NmnsckezLPmP~ZkOTOXUEg8DTm6I7yUVT~NRZ9kD-OPjMlP2t7Ntcv6pM~a2xWdaEMls326QhJH0p~5nbvpWV36rtiLXfqR0oEomZheqC4WwnIUnpIkGe-gWKv13b~Lev5r4yTJEiAzPTjQhYP48cnjCr21h2EIO-IZx6lAIi0fFPAZ2l80W~1YtaGVVI8Q5e0~HEzwnYy4Y3RUfwKmxfkS2Q5XOKpdA__'
 
     const imageSize = direction === 'row' ? 64 : 140;
 
@@ -156,7 +161,8 @@ function FeaturedBadge({ item, className }: { item: TItem; className?: string })
     if (!item.featured) return null;
 
     return (
-        <Badge variant="default" className={cn('mx-auto w-max px-4 py-2', className)}>
+        <Badge variant="default" className={cn('mx-auto w-max px-4 py-2 absolute mb-[19rem] flex gap-2 text-white', className)}>
+            <BadgeCheck size={16}/>
             {t('featured')}
         </Badge>
     );

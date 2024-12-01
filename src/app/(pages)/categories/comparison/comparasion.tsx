@@ -14,7 +14,7 @@ import {
    TableCell
 } from '@/components/ui/table';
 import { extractCategoryComparisons, extractSubCategoryComparisons } from '../utils/utils';
-import { CheckCircle2, XCircle } from 'lucide-react';
+import { BadgeCheck, CheckCircle2, XCircle } from 'lucide-react';
 import { DescriptionTooltip } from '../../checkout/components/cart-item/item-description-tooltip';
 
 type ComparisonProps = {
@@ -74,26 +74,24 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
          </TableHeader>
          <TableBody>
             {comparisons.map((comparison, index) => {
-               const bgColor = index % 2 === 0 ? 'bg-card' : 'bg-accent';
+               const bgColor = 'bg-card';
 
                return (
                   <TableRow
                      key={comparison.id}
                      className={
-                        'hover:bg-accent2 group divide-x divide-accent even:bg-accent'
+                        'divide-x divide-accentt'
                      }
                   >
                      <TableCell
-                        className={`sticky left-0 z-10 flex w-[200px] items-center justify-between ${bgColor} group-hover:bg-accent2 transition-colors`}
+                        className={`sticky left-0 z-10 flex w-[200px] items-center justify-between ${bgColor} transition-colors`}
                      >
-                        <p>{comparison.name}</p>
-                        {comparison.description && (
-                           <DescriptionTooltip description={comparison.description} />
-                        )}
+                        <p>{comparison.name}</p>               
                      </TableCell>
                      {comparison.comparisons.map((item) => (
+                        console.log(item, 'item'),
                         <TableCell key={item.comparison_id} className="text-center">
-                           <ComparisonIcon value={item.value} type={comparison.type} />
+                           <ComparisonIcon value={item.value} type={comparison.type}/>
                         </TableCell>
                      ))}
                   </TableRow>
@@ -111,11 +109,11 @@ function ComparisonIcon({ value, type }: { value: string; type: number }) {
       const valueToNumber = Number(value);
 
       if (valueToNumber === 1) {
-         return <CheckCircle2 className="mx-auto text-green-500" />;
+         return <BadgeCheck className="mx-auto text-zinc-900" fill="#7e49ff"/>;
       } else if (valueToNumber === 0) {
-         return <XCircle className="mx-auto text-red-500" />;
+         return <XCircle className="mx-auto text-zinc-900" fill='#71717a' />;
       }
    }
 
-   return <span dangerouslySetInnerHTML={{ __html: value }}></span>;
+   return <span dangerouslySetInnerHTML={{ __html: value }} className={`font-bold ${value.includes('<p') ? 'text-lg font-minecraft' : ''} `}></span>;
 }

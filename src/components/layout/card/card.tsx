@@ -30,10 +30,10 @@ export function Card({ item, direction = 'col', hideButton }: CardProps) {
 
     return (
         <div className={cn('relative', direction === 'col' ? 'h-full' : '')}>
-            <CardLayout direction={direction} className={item.featured ? 'featured-package' : ''}>
-                <CardHeader item={item} direction={direction} />
+            <CardLayout direction={direction} className={item.featured ? 'featured-package' : '' + 'featured-package'}>
+                <CardHeader item={item} direction={direction} setShowModal={setShowModal}/>    
                 <CardActions
-                    hideButton={ hideButton }
+                    hideButton={hideButton}
                     item={item}
                     direction={direction}
                     isItemInCart={isItemInCart}
