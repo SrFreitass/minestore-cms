@@ -9,7 +9,7 @@ import { App } from './app';
 
 const { getSettings } = getEndpoints(fetcher);
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '800'] });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
 
 export const generateMetadata = async (): Promise<Metadata> => {
     try {
