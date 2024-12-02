@@ -1,11 +1,11 @@
 import { TSubCategories } from '@/types/categories';
 import { joinClasses } from '@helpers/join-classes';
+import { setCookie } from 'cookies-next';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
-import { FC, useState, useRef, useEffect } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { ReactSVG } from 'react-svg';
 import { SumMenuItem } from './sub-menu-item';
-import { setCookie } from 'cookies-next';
 
 type MenuItemProps = {
     name: string;
@@ -55,7 +55,7 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
             <div
                 onClick={handleClick}
                 className={joinClasses(
-                    "before:content-[' '] h-20 flex-row items-center bg-accent before:absolute before:-m-6 before:h-10 before:w-1.5 before:rounded-r-lg before:bg-accent before:transition-all hover:text-accent-foreground hover:before:bg-accent-foreground",
+                    "before:content-[' '] h-20 flex-row items-center bg-[#25262F] before:absolute before:-m-6 before:h-10 before:w-1.5 before:rounded-r-lg before:bg-transparent before:transition-all hover:before:bg-orange hover:text-accent-foreground",
                     { 'before:bg-orange': isActive },
                 )}
             >

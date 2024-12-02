@@ -8,14 +8,12 @@ import { getModifiedCacheBuster } from '@helpers/cache-buster';
 import { convertToLocalCurrency } from '@helpers/convert-to-local-currency';
 import { Navbar } from '@layout/navbar/navbar';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FC } from 'react';
 import { HeroSection } from './sections/hero-section';
 
 import { Progress } from '@/components/ui/progress';
 import { ReactSVG } from 'react-svg';
 import './Header.css';
-import { LanguageSection } from '@layout/navbar/sections/language-section';
 
 type HeaderProps = {
     settings: TSettings;
@@ -38,7 +36,7 @@ export const Header: FC<HeaderProps> = ({ settings }) => {
                         height={352}
                         alt=""
                     />
-              
+
                 </div>
             </div>
 
@@ -53,37 +51,11 @@ export const Header: FC<HeaderProps> = ({ settings }) => {
                     <div className="absolute inset-0 -z-10 size-full rounded-md bg-primary"></div>
                     <div className="absolute inset-0 -z-10 size-full rounded-md bg-cover opacity-20"></div>
 
-                    <div className='w-full flex justify-center items-center gap-2 font-semibold text-white'>
+                    <div className='w-full flex justify-center items-center gap-2 font-semibold text-white text-center'>
                        <ReactSVG src={settings.header_info?.icon || '/icons/bell.svg' } />
                        {settings.header_info?.info || 'PROMOÇÃO DE INAUGURAÇÃO | DESCONTOS de até 99% OFF por TEMPO ILIMITADO!'}
                     </div>
-                
-                    {user && (
-                        <>
-                            <div className="relative ml-auto mr-8 flex-col text-right">
-                                <span className="text-base font-bold text-white sm:text-2xl dark:text-accent-foreground">
-                                    {user.username}
-                                </span>
-                               {settings.is_virtual_currency === 1 && (
-                                 <span className="ml-4 text-sm text-accent-foreground/80 sm:text-base">
-                                    {user.virtual_currency} {settings.virtual_currency}
-                                 </span>
-                               )}
-                            </div>
 
-                            <div className="relative top-[-45px] hidden h-[200px] overflow-hidden md:block">
-                                <Link href="/profile">
-                                    <Image
-                                        src={user.avatar || ''}
-                                        alt="Avatar"
-                                        className="h-[270px] w-[111px] -scale-x-100"
-                                        width={111}
-                                        height={270}
-                                    />
-                                </Link>
-                            </div>
-                        </>
-                    )}
                 </div>
             </Container>
         </header>
@@ -125,7 +97,7 @@ function DonationGoal({ goal }: { goal: TSettings['goals'] }) {
             </div>
 
             <Progress value={percent} className="h-2" />
-            
+
         </div>
     );
 }

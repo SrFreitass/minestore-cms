@@ -1,8 +1,8 @@
-import { FC } from 'react';
 import { joinClasses } from '@helpers/join-classes';
+import { setCookie } from 'cookies-next';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { setCookie } from 'cookies-next';
+import { FC } from 'react';
 
 type SubMenuItemProps = {
     name: string;
@@ -18,13 +18,13 @@ export const SumMenuItem: FC<SubMenuItemProps> = ({ name, url }) => {
     };
 
     return (
-        <Link className="group h-12 flex-row items-center" href={url} onClick={handleClick}>
+        <Link className="group h-12 flex-row items-center bg-[#30313A]" href={url} onClick={handleClick}>
             <div
                 className={joinClasses(
                     'h-7 w-1 rounded-r-lg transition-all',
                     isActive
                         ? 'text-orange'
-                        : 'bg-accent-foreground/60 group-hover:bg-accent-foreground'
+                        : 'bg-[#30313A] group-hover:bg-accent-foreground'
                 )}
             />
             <span className="ml-4 font-bold">{name}</span>

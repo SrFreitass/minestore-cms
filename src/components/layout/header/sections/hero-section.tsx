@@ -78,23 +78,23 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
 
     return (
         <div className="relative w-full flex-row items-center justify-center">
-            <div
-                onClick={handleCopyServerIP}
-                className="-mt-20 cursor-pointer flex justify-center items-center gap-2 transition duration-300 hover:scale-110 font-semibold translate-y-20"
-            >
-                <div className="flex flex-col items-center justify-center relative">
-                   <ReactSVG className="h-full w-full flex justify-center" src="/icons/discord-button.svg" />
-                   <div className="h-1 w-1/2 bg-orange rounded-md drop-shadow-orange absolute mt-[54px]"/>
-                </div>
-                <div className="ml-0.5 flex-col">
-                    <span className="text-base font-bold text-orange">
-                        Junte-se a comunidade
-                    </span>
-                    <span className="text-sm text-white/75">
-                        1.000+ membros disponíveis
-                    </span>
-                </div>
-            </div>
+           <Link
+               href={settings.discord_url}
+               className="-mt-20 hidden items-center gap-2 transition duration-300 hover:scale-110 lg:flex flex-row-reverse font-semibold translate-y-20"
+           >
+               <div className="ml-0.5 flex-col">
+                   <span className="text-base font-bold text-orange">
+                      Junte-se a comunidade
+                   </span>
+                   <span className="text-sm text-white/75">
+                      1.000+ membros disponíveis
+                   </span>
+               </div>
+               <div className="flex flex-col items-center justify-center relative">
+                  <ReactSVG className="h-full w-full flex justify-center" src="/icons/discord-button.svg" />
+                  <div className="h-1 w-1/2 bg-orange rounded-md drop-shadow-orange absolute mt-[54px]"/>
+               </div>
+           </Link>
 
             <div className="relative z-10 translate-y-12">
                 <Link href="/">
