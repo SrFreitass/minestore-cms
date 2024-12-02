@@ -1,11 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import {
-   DropdownMenu,
-   DropdownMenuContent,
-   DropdownMenuGroup,
-   DropdownMenuLabel,
-   DropdownMenuTrigger
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuGroup,
+    DropdownMenuLabel,
+    DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { useCartStore } from "@/stores/cart";
 import { ShoppingCart } from "lucide-react";
@@ -20,7 +20,9 @@ export function DropmenuCart() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
          <div className="cursor-pointer bg-white/45 p-2 rounded-md relative">
-            <span className={`${items.length >= 1 ? 'bg-orange' : 'bg-white'}  size-5 rounded-full absolute text-center font-semibold -top-2 -right-2`}>{items.length}</span>
+            <span className={`${items.length >= 1 ? 'bg-orange' : 'bg-white'}  size-5 rounded-full absolute text-center font-semibold -top-2 -right-2`}>
+               <span className="relative bottom-[2px]">{items.length}</span>
+            </span>
             <ShoppingCart/>
          </div>
       </DropdownMenuTrigger>
