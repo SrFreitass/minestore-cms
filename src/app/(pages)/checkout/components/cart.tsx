@@ -20,7 +20,7 @@ export const Cart: FC = () => {
                 <div className='px-6 flex justify-between items-center w-full'>
                     <p className="text-3xl font-bold text-white">
                         {t('title')}
-                    </p>2
+                    </p>
                     <span className="ml-auto flex items-center gap-2 text-2xl font-bold">
                         <span className='font-normal text-base relative top-1'>Total:</span> <Price value={cart?.price || 0} />
                     {cart?.virtual_price
@@ -56,9 +56,9 @@ function CartItems({ items }: { items: TCart['items'] }) {
     }
 
     return (
-        <div className='bg-[#25262F]'>
+        <div className='bg-[#25262F] px-6 rounded-md'>
             <Table className="my-4 bg-[#25262F]">
-                <TableHeader className="[&_tr]:border-b-4">
+                <TableHeader className="">
                     <TableRow>
                         
                         <TableHead className="w-[250px] text-base font-bold text-white md:text-lg">
@@ -72,8 +72,15 @@ function CartItems({ items }: { items: TCart['items'] }) {
                         </TableHead>
                     </TableRow>
                 </TableHeader>
-                <TableBody className="[&_tr]:border-b-4">
-                    {items?.map((item) => <CartItem key={item.id} item={item} />)}
+                <TableBody>
+
+                    {items?.map((item) => 
+                    <>
+                        <br/>
+                        <CartItem key={item.id} item={item} />
+                    </>
+                    )
+                    }
                 </TableBody>
             </Table>
         </div>

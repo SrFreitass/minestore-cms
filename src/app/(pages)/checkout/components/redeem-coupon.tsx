@@ -1,16 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import { Input } from '@/components/ui/input';
 import { getEndpoints } from '@/api';
 import { fetcher } from '@/api/client/fetcher';
-import { notify } from '@/core/notifications';
-import { useCartStore } from '@/stores/cart';
 import { Price } from '@/components/base/price/price';
-import { useTranslations } from 'next-intl';
-import { Button } from '@/components/ui/button';
-import { Loader2, Tags, X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
     Form,
     FormControl,
@@ -19,9 +13,15 @@ import {
     FormLabel,
     FormMessage
 } from '@/components/ui/form';
-import { z } from 'zod';
+import { Input } from '@/components/ui/input';
+import { notify } from '@/core/notifications';
+import { useCartStore } from '@/stores/cart';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Loader2, PlusIcon, Tags, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 const { acceptCoupon, getCart, removeCoupon, removeGiftCard } = getEndpoints(fetcher);
 
@@ -89,11 +89,8 @@ export const RedeemCoupon = () => {
 
     return (
         <>
-            <div className="flex-col gap-4">
+            <div className="flex-col gap-4 py-4 px-8 bg-[#25262F] rounded-md">
                 <div>
-                    <p className="text-[20px] font-bold text-accent-foreground">
-                        {t('redeem-coupons-or-gift-cards')}
-                    </p>
 
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="mt-2 flex gap-2">
@@ -101,17 +98,18 @@ export const RedeemCoupon = () => {
                                 control={form.control}
                                 name="code"
                                 render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>{t('coupon-code')}</FormLabel>
+                                    <FormItem className='w-full'>
+                                        <FormLabel className='font-bold text-white'>Tem um cupom de desconto?</FormLabel>
                                         <FormControl>
-                                            <div className="flex gap-2">
+                                            <div className="flex flex-wrap gap-2">
                                                 <Input
                                                     placeholder={t('coupon-placeholder')}
                                                     {...field}
+                                                    className='bg-transparent border-[#B3B3B3] w-[28rem] max-md:w-full'
                                                 />
                                                 <Button
                                                     type="submit"
-                                                    className="gap-2"
+                                                    className="gap-2 max-md:w-full"
                                                     disabled={loading || !field.value}
                                                 >
                                                     {loading && (
@@ -120,7 +118,8 @@ export const RedeemCoupon = () => {
                                                             className="animate-spin"
                                                         />
                                                     )}
-                                                    {t('redeem')}
+                                                    <PlusIcon size={16}/>
+                                                    Aplicar cupom
                                                 </Button>
                                             </div>
                                         </FormControl>

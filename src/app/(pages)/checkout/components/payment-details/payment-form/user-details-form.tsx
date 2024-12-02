@@ -1,26 +1,14 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
-import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem
-} from '@/components/ui/command';
 
-import { Button } from '@/components/ui/button';
 
 import { Input } from '@/components/ui/input';
 
 import { getFormCountries } from '@/constants/countries';
 
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Check, ChevronsUpDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { useFormContext } from 'react-hook-form';
-import { UserAvatar } from './user-avatar';
 import { useSettingsStore } from '@/stores/settings';
 import { useTranslations } from 'next-intl';
+import { useFormContext } from 'react-hook-form';
 
 export const UserDetailsForm = () => {
     const { settings } = useSettingsStore();
@@ -35,21 +23,35 @@ export const UserDetailsForm = () => {
     }
 
     return (
-        <div className="grid gap-8 xl:grid-cols-[300px,1fr]">
-            <div className="m-auto hidden xl:block">
-                <UserAvatar />
-            </div>
-            <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-accent-foreground">{t('your-details')}</h2>
-                <div className="grid grid-cols-2 gap-4">
+        <div className="p-8 flex bg-[#25262F] rounded-md">
+            <div className="space-y-4 w-full">
+                <h2 className="text-2xl font-bold text-white">
+                    Primeiras etapas
+                </h2>
+                <div className="flex flex-col gap-4 max-w-96 w-full">
+                    <FormField
+                        defaultValue=""
+                        name="details.nickname"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Seu nickname</FormLabel>
+                                <FormControl>
+                                    <Input placeholder="Nick in-game" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+
+
                     <FormField
                         name="details.fullname"
                         defaultValue=""
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>*{t('full-name')}</FormLabel>
+                                <FormLabel>Nome completo</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="John Doe" {...field} />
+                                    <Input placeholder="Nome real" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -61,16 +63,16 @@ export const UserDetailsForm = () => {
                         name="details.email"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel>*{t('email')}</FormLabel>
+                                <FormLabel>E-mail</FormLabel>
                                 <FormControl>
-                                    <Input placeholder="test@gmail.com" {...field} />
+                                    <Input placeholder="Seu e-mail" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
                         )}
                     />
 
-                    <FormField
+                    {/* <FormField
                         defaultValue=""
                         name="details.address1"
                         render={({ field }) => (
@@ -82,9 +84,9 @@ export const UserDetailsForm = () => {
                                 <FormMessage />
                             </FormItem>
                         )}
-                    />
+                    /> */}
 
-                    <FormField
+                    {/* <FormField
                         defaultValue=""
                         name="details.address2"
                         render={({ field }) => (
@@ -201,7 +203,7 @@ export const UserDetailsForm = () => {
                                 <FormMessage />
                             </FormItem>
                         )}
-                    />
+                    /> */}
                 </div>
             </div>
         </div>

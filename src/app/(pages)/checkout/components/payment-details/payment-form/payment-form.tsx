@@ -5,21 +5,24 @@ import { fetcher } from '@/api/client/fetcher';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { useCartStore } from '@/stores/cart';
-import { PaymentFormValues, defaultValues, paymentFormSchema } from './form-schema';
-import { useCurrencyStore } from '@/stores/currency';
-import { UserDetailsForm } from './user-details-form';
-import { PaymentMethodForm } from './payment-method-form';
-import { useState } from 'react';
-import { PaymentFormSubmit } from './payment-form-submit';
-import { loadScript } from '@/lib/utils';
 import { notify } from '@/core/notifications';
+import { loadScript } from '@/lib/utils';
+import { useCartStore } from '@/stores/cart';
+import { useCurrencyStore } from '@/stores/currency';
+import { useState } from 'react';
 import { QrDetailsProps, QrPaymentModal } from '../../qr-payment-modal';
+import { RedeemCoupon } from '../../redeem-coupon';
+import { ReferralCode } from '../../referral-code';
+import { PaymentFormValues, defaultValues, paymentFormSchema } from './form-schema';
+import { PaymentFormSubmit } from './payment-form-submit';
+import { PaymentMethodForm } from './payment-method-form';
+import { PaymentTotal } from './payment-total';
+import { UserDetailsForm } from './user-details-form';
 
 const { checkout } = getEndpoints(fetcher);
 
 export function PaymentForm() {
-    const { items } = useCartStore();
+    const { cart, items } = useCartStore();
     const { currency } = useCurrencyStore();
 
     const [showQrModal, setShowQrModal] = useState(false);
@@ -104,12 +107,21 @@ export function PaymentForm() {
                 />
             ) : null}
             <FormProvider {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+
                     <UserDetailsForm />
 
-                    <PaymentMethodForm items={items} />
+                    <ReferralCode />
+                    <RedeemCoupon />
 
-                    <PaymentFormSubmit loading={loading} />
+                    <PaymentTotal
+                        total={cart?.price || 0}
+                        subTotal={cart?.price || 0}
+                        discount={cart?.coupon_value || 0}
+                    />
+
+                     <PaymentMethodForm items={items} />
+                     <PaymentFormSubmit loading={loading} />
                 </form>
             </FormProvider>
         </>

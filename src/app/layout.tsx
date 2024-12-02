@@ -1,15 +1,15 @@
-import './globals.css';
 import { getEndpoints } from '@/api';
 import { fetcher } from '@/api/server/fetcher';
+import './globals.css';
 
 import type { Metadata } from 'next';
-import { App } from './app';
 import { Montserrat } from 'next/font/google';
 import 'react-quill/dist/quill.snow.css';
+import { App } from './app';
 
 const { getSettings } = getEndpoints(fetcher);
 
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '700'] });
+const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '800'] });
 
 export const generateMetadata = async (): Promise<Metadata> => {
     try {

@@ -1,5 +1,5 @@
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Checkbox } from '@/components/ui/checkbox';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
@@ -9,7 +9,7 @@ export const PaymentFormSubmit = ({ loading }: { loading: boolean }) => {
     const t = useTranslations('checkout');
 
     return (
-        <div className="flex flex-wrap items-center justify-between">
+        <div className="flex flex-col items-start justify-between px-8 bg-[#25262F] relative bottom-5 pb-4">
             <FormField
                 name="privacyPolicy"
                 render={({ field }) => (
@@ -17,8 +17,11 @@ export const PaymentFormSubmit = ({ loading }: { loading: boolean }) => {
                         <FormControl>
                             <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                         </FormControl>
-                        <div className="space-y-1 leading-none">
-                            <FormLabel>{t('agree')}</FormLabel>
+                        <div className="space-y-1 leading-none text-white">
+                            <FormLabel className='!text-sm'>
+                               Eu li e concordo com os <span className='text-orange'>termos e condições</span> de
+                               compra.
+                            </FormLabel>
                             <FormMessage />
                         </div>
                     </FormItem>
@@ -27,10 +30,10 @@ export const PaymentFormSubmit = ({ loading }: { loading: boolean }) => {
             <Button
                 type="submit"
                 disabled={loading}
-                className="mt-4 flex w-full items-center justify-center gap-2 md:w-auto"
+                className="mt-4 flex w-full items-center justify-center gap-2 md:w-auto text-base"
             >
                 {loading && <Loader2 className="animate-spin" size={24} />}
-                {t('purchase')}
+                Finalizar compra
             </Button>
         </div>
     );

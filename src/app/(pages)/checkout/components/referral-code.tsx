@@ -1,14 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import { Input } from '@/components/ui/input';
 import { getEndpoints } from '@/api';
 import { fetcher } from '@/api/client/fetcher';
-import { notify } from '@/core/notifications';
-import { useCartStore } from '@/stores/cart';
-import { Button } from '@/components/ui/button';
-import { Loader2, Tags, X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import {
     Form,
     FormControl,
@@ -17,11 +12,16 @@ import {
     FormLabel,
     FormMessage
 } from '@/components/ui/form';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { useTranslations } from 'next-intl';
+import { Input } from '@/components/ui/input';
+import { notify } from '@/core/notifications';
+import { useCartStore } from '@/stores/cart';
 import { useSettingsStore } from '@/stores/settings';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Loader2, Tags, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 const { getCart, removeReferral, acceptReferral } = getEndpoints(fetcher);
 

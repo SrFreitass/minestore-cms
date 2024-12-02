@@ -1,10 +1,8 @@
-import { FC } from 'react';
 import { useCurrencyStore } from '@/stores/currency';
 import { useSettingsStore } from '@/stores/settings';
 import { convertToLocalCurrency } from '@helpers/convert-to-local-currency';
-import { cn } from '@/lib/utils';
-import { ReactSVG } from 'react-svg';
 import Image from 'next/image';
+import { FC } from 'react';
 
 type PriceProps = {
     value: number;
@@ -68,7 +66,7 @@ const PriceTag: FC<PriceTagProps> = ({
                             <Image src='/media/discount-card.svg' width={55} height={20} alt=''/>
                         </div>
                     </div>
-                    <span className="text-xl text-white font-bold">
+                    <span className={`text-xl text-white font-bold`}>
                         <span className='text-base font-medium'>
                             {currency}
                         </span>
