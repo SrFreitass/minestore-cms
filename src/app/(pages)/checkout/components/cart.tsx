@@ -1,13 +1,13 @@
 'use client';
 
+import { Price } from '@/components/base/price/price';
+import { Table, TableBody, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { useCartStore } from '@/stores/cart';
+import { useSettingsStore } from '@/stores/settings';
+import { TCart } from '@/types/cart';
+import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 import { CartItem } from './cart-item';
-import { Price } from '@/components/base/price/price';
-import { useCartStore } from '@/stores/cart';
-import { useTranslations } from 'next-intl';
-import { Table, TableHeader, TableRow, TableHead, TableBody } from '@/components/ui/table';
-import { TCart } from '@/types/cart';
-import { useSettingsStore } from '@/stores/settings';
 
 export const Cart: FC = () => {
     const t = useTranslations('checkout');
@@ -16,24 +16,26 @@ export const Cart: FC = () => {
 
     return (
         <>
-            <div className="stone-pattern flex-row rounded-md p-9 dark:bg-accent">
-                <p className="text-2xl font-bold text-white dark:text-accent-foreground">
-                    {t('title')}
-                </p>
-                <span className="ml-auto flex items-center gap-2 text-[25px] font-bold">
-                    <Price value={cart?.price || 0} />
-                   {cart?.virtual_price
-                      ? ` / ${cart.virtual_price} ${settings?.virtual_currency}`
-                      : ''}
-                    {cart?.tax ? (
-                       <span className="flex gap-2">
-                            {' '}
-                          + <Price value={cart.tax}/> (tax)
-                        </span>
-                    ) : (
-                       ''
-                    )}
-                </span>
+            <div className="stone-pattern flex-row items-center rounded-md h-24">
+                <div className='px-6 flex justify-between items-center w-full'>
+                    <p className="text-3xl font-bold text-white">
+                        {t('title')}
+                    </p>2
+                    <span className="ml-auto flex items-center gap-2 text-2xl font-bold">
+                        <span className='font-normal text-base relative top-1'>Total:</span> <Price value={cart?.price || 0} />
+                    {cart?.virtual_price
+                        ? ` / ${cart.virtual_price} ${settings?.virtual_currency}`
+                        : ''}
+                        {cart?.tax ? (
+                        <span className="flex gap-2">
+                                {' '}
+                            + <Price value={cart.tax}/> (tax)
+                            </span>
+                        ) : (
+                        ''
+                        )}
+                    </span>
+                </div>
             </div>
 
             <CartItems items={items} />
@@ -54,29 +56,26 @@ function CartItems({ items }: { items: TCart['items'] }) {
     }
 
     return (
-        <Table className="my-4 border-4">
-            <TableHeader className="[&_tr]:border-b-4">
-                <TableRow className="">
-                    <TableHead className="hidden md:table-cell md:w-[100px]">
-                        <span className="sr-only">{t('image')}</span>
-                    </TableHead>
-                    <TableHead className="w-[300px] text-base font-bold text-primary md:text-lg">
-                        {t('name')}
-                    </TableHead>
-                    <TableHead className="w-[200px] text-base font-bold text-primary md:text-lg">
-                        {t('price')}
-                    </TableHead>
-                    <TableHead className="w-[130px] text-base font-bold text-primary md:text-lg">
-                        {t('quantity')}
-                    </TableHead>
-                    <TableHead>
-                        <span className="sr-only">{t('actions')}</span>
-                    </TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody className="[&_tr]:border-b-4">
-                {items?.map((item) => <CartItem key={item.id} item={item} />)}
-            </TableBody>
-        </Table>
+        <div className='bg-[#25262F]'>
+            <Table className="my-4 bg-[#25262F]">
+                <TableHeader className="[&_tr]:border-b-4">
+                    <TableRow>
+                        
+                        <TableHead className="w-[250px] text-base font-bold text-white md:text-lg">
+                            {/* {t('name')} */} Produto
+                        </TableHead>
+                        <TableHead className="w-[650px] text-base font-bold text-white md:text-lg text-center">
+                            {/* {t('quantity')} */} Quantidade
+                        </TableHead>
+                        <TableHead className="w-[200px] text-base font-bold text-white md:text-lg text-start">
+                            {/* {t('price')} */} Valor
+                        </TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody className="[&_tr]:border-b-4">
+                    {items?.map((item) => <CartItem key={item.id} item={item} />)}
+                </TableBody>
+            </Table>
+        </div>
     );
 }
