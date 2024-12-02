@@ -2,7 +2,7 @@
 
 import { TSettings } from '@/types/settings';
 import { FC } from 'react';
-import { ShoppingCartSection } from './sections/shopping-cart-section';
+import { DropmenuCart } from './sections/dropmenu-cart';
 
 
 
@@ -38,8 +38,8 @@ export const Navbar: FC<NavbarProps> = () => {
                   </li>
               </div>
 
-              <ShoppingCartSection />
            </ul>
+           <DropmenuCart/>
           {/* <div className="hidden items-center md:flex">
                 <CurrencySection settings={settings} />
                 <Divider />

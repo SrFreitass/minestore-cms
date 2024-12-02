@@ -1,8 +1,7 @@
-import { Price } from '@/components/base/price/price';
+import { DropdownMenu } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/core/auth/client/use-auth';
 import { useCartStore } from '@/stores/cart';
 import { useTranslations } from 'next-intl';
-import Link from 'next/link';
 import { FC } from 'react';
 import { ReactSVG } from 'react-svg';
 
@@ -16,16 +15,23 @@ export const ShoppingCartSection: FC = () => {
 
     if (!user) {
         return (
-            <div className='bg-white-opaque p-2 rounded-md'>
+            <div className='bg-white-opaque p-2 rounded-md relative left-32'>
                 <div className='w-4 h-4 bg-zinc-200 absolute rounded-full -mt-3 ml-5'></div>
-                <ReactSVG src="/icons/shopping-cart.svg" className='text-white dark:text-accent-foreground' />
+                <ReactSVG src="/icons/shopping-cart.svg" className='text-white' />
             </div>
         );
     }
 
     return (
         <>
-            <ReactSVG
+           <div className='bg-white-opaque p-2 rounded-md relative left-32'>
+              <div className={`w-4 h-4 absolute rounded-full -mt-3 ml-5 ${isCartEmpty ? 'bg-zinc-400' : 'bg-orange'}`}>
+                 <p className='relative bottom-[2px] left-1 font-bold text-white text-sm'>3</p>
+              </div>
+               <ReactSVG src="/icons/shopping-cart.svg" className='text-white' />
+             <DropdownMenu open={true} />
+           </div>
+            {/* <ReactSVG
                 src="/icons/shopping-cart.svg"
                 className="text-white dark:text-accent-foreground"
             />
@@ -52,7 +58,7 @@ export const ShoppingCartSection: FC = () => {
                         {t('not-logged')}
                     </span>
                 )}
-            </div>
+            </div> */}
         </>
     );
 };
