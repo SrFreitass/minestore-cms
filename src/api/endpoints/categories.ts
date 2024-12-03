@@ -1,5 +1,5 @@
-import { AxiosInstance } from "axios"
 import { TCategories } from "@/types/categories"
+import { AxiosInstance } from "axios"
 
 type ReturnType = TCategories
 
@@ -14,16 +14,16 @@ export const getCategories = (fetcher: AxiosInstance) =>
             name: 'VIPs',
             active: 1,
             description: '<p>Unlock elite perks and enhanced features to dominate the battlefield and protect your faction with our exclusive Factions keys!</p>',
-            url: 'factions/keys',
+            url: 'factions/ranks',
             img: null,
             subcategories: []
-         }, 
+         },
          {
             idx: 2,
             name: 'Cash',
             active: 1,
             description: '<p>Unlock elite perks and enhanced features to dominate the battlefield and protect your faction with our exclusive Factions keys!</p>',
-            url: 'factions/keys',
+            url: 'tokens',
             img: null,
             subcategories: []
          }

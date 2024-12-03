@@ -61,10 +61,7 @@ const PriceTag: FC<PriceTagProps> = ({
                         <s className="text-zinc-600 line-through flex flex-row-reverse">
                             {currency} {effectivePrice.toFixed(2).replace('.', ',')}
                         </s>
-                        <div className={`relative flex justify-center items-center`}>
-                            <p className='absolute text-red-500 font-bold ml-2 mt-1'>-{discount}%</p>
-                            <Image src='/media/discount-card.svg' width={55} height={20} alt=''/>
-                        </div>
+                        <DiscountTag discount={discount}/>
                     </div>
                     <span className={`text-xl text-white font-bold`}>
                         <span className='text-base font-medium'>
@@ -121,8 +118,17 @@ export const VariablePrice: FC<VariablePriceProps> = ({ value }) => {
 
    return (
       <span>
-         {localPrice} 
+         {localPrice}
          {localCurrencyName}
       </span>
    );
 };
+
+export const DiscountTag = ({discount}: { discount: number | string }) => {
+   return (
+      <div className={`relative flex justify-center items-center`}>
+          <p className='absolute text-red-500 font-bold ml-3'>-{discount}%</p>
+          <Image src='/media/discount-card.svg' width={55} height={20} alt=''/>
+      </div>
+   )
+}

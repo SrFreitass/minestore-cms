@@ -40,18 +40,18 @@ export const Header: FC<HeaderProps> = ({ settings }) => {
                 </div>
             </div>
 
-            <div className="relative">
+            <div className="relative max-w-[1520px] m-auto">
                 <Navbar settings={settings} />
 
                 <HeroSection settings={settings} />
             </div>
 
             <Container>
-                <div className="relative flex h-[3.5rem] items-center bg-primary/20 px-5 mt-20">
+                <div className="relative flex min-h-[3.5rem] items-center bg-primary/20 px-5 mt-20">
                     <div className="absolute inset-0 -z-10 size-full rounded-md bg-primary"></div>
                     <div className="absolute inset-0 -z-10 size-full rounded-md bg-cover opacity-20"></div>
 
-                    <div className='w-full flex justify-center items-center gap-2 font-semibold text-white text-center'>
+                    <div className='w-full flex justify-center items-center gap-2 font-bold text-white text-start'>
                        <ReactSVG src={settings.header_info?.icon || '/icons/bell.svg' } />
                        {settings.header_info?.info || 'PROMOÇÃO DE INAUGURAÇÃO | DESCONTOS de até 99% OFF por TEMPO ILIMITADO!'}
                     </div>

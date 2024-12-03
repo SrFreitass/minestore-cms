@@ -19,7 +19,7 @@ export function DropmenuCart() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-         <div className="cursor-pointer bg-white/45 p-2 rounded-md relative">
+         <div className="cursor-pointer bg-white/45 p-2 rounded-md absolute right-4">
             <span className={`${items.length >= 1 ? 'bg-orange' : 'bg-white'}  size-5 rounded-full absolute text-center font-semibold -top-2 -right-2`}>
                <span className="relative bottom-[2px]">{items.length}</span>
             </span>

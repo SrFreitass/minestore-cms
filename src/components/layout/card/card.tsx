@@ -17,9 +17,10 @@ type CardProps = {
     calledFromCheckout?: boolean;
     className?: string;
     isCash?: boolean;
+    showProduct?: boolean;
 };
 
-export function Card({ item, direction = 'col', hideButton, isCash }: CardProps) {
+export function Card({ item, direction = 'col', hideButton, isCash, showProduct = true }: CardProps) {
     const [showModal, setShowModal] = useState(false);
 
     const { items } = useCartStore();
@@ -30,10 +31,10 @@ export function Card({ item, direction = 'col', hideButton, isCash }: CardProps)
     const path = usePathname();
 
     return (
-        <div className={cn('relative', direction === 'col' ? 'h-full' : '')}>
+        <div className={cn('relative', direction === 'col' ? 'h-full' : '', '!border-none')}>
             <CardLayout direction={direction} className={item.featured ? 'featured-package' : ''}>
-                <CardHeader item={item} direction={direction} setShowModal={isCash ? () => 0: setShowModal}/>    
-                <CardActions
+               <CardHeader item={item} direction={direction} setShowModal={isCash ? () => 0: setShowModal}/>
+               <CardActions
                     hideButton={hideButton}
                     item={item}
                     direction={direction}
@@ -41,7 +42,7 @@ export function Card({ item, direction = 'col', hideButton, isCash }: CardProps)
                     setShowModal={setShowModal}
                     available={isItemUnavailable}
                     displayFull={direction === 'col'}
-                />
+               />
             </CardLayout>
             <ItemDetails
                 show={showModal}

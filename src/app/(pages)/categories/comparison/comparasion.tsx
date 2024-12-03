@@ -1,21 +1,23 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { TItem } from '@/types/item';
-import { Card } from '@layout/card/card';
-import { TCategory, TSubCategory } from '@/types/category-details';
+import { DiscountTag } from '@/components/base/price/price';
 import {
    Table,
-   TableCaption,
-   TableHeader,
-   TableRow,
-   TableHead,
    TableBody,
-   TableCell
+   TableCaption,
+   TableCell,
+   TableHead,
+   TableHeader,
+   TableRow
 } from '@/components/ui/table';
+import { useCartStore } from '@/stores/cart';
+import { TCategory, TSubCategory } from '@/types/category-details';
+import { TItem } from '@/types/item';
+import { Card } from '@layout/card/card';
+import { CardActions } from '@layout/card/card-actions';
+import { BadgeCheck, XCircle } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 import { extractCategoryComparisons, extractSubCategoryComparisons } from '../utils/utils';
-import { BadgeCheck, CheckCircle2, XCircle } from 'lucide-react';
-import { DescriptionTooltip } from '../../checkout/components/cart-item/item-description-tooltip';
 
 type ComparisonProps = {
    category: TCategory;
@@ -32,6 +34,9 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
    const comparisons = subCategory ? subCategoryComparisons : categoryComparisons;
 
    const tableHeadContainerRef = useRef<HTMLDivElement>(null);
+
+   const { items } = useCartStore();
+
 
    useEffect(() => {
       const adjustHeights = () => {
@@ -77,6 +82,7 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                const bgColor = 'bg-card';
 
                return (
+                  <>
                   <TableRow
                      key={comparison.id}
                      className={
@@ -86,7 +92,7 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                      <TableCell
                         className={`sticky left-0 z-10 flex w-[200px] items-center justify-between ${bgColor} transition-colors`}
                      >
-                        <p>{comparison.name}</p>               
+                        <p>{comparison.name}</p>
                      </TableCell>
                      {comparison.comparisons.map((item) => (
                         console.log(item, 'item'),
@@ -95,8 +101,31 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                         </TableCell>
                      ))}
                   </TableRow>
+                  </>
                );
             })}
+            <TableRow>
+               <TableCell>
+
+               </TableCell>
+               {
+                  selectedItems.map((item, i) => (
+                     <TableCell key={i} className='text-center'>
+                        <span className='text-lg line-through flex justify-center gap-2'>
+                           R$ {(item.price + item.discount).toFixed(2).replace('.', ',')}
+                           {/* item.discount not discount :) */}
+                           <DiscountTag discount={item.discount}/>
+                        </span>
+                        <span className="font-bold text-2xl text-white flex justify-center items-end">
+                           <span className='text-lg'>R$</span>{item.price.toFixed(2).replace('.', ',')}
+                        </span>
+                        <br/>
+                        <CardActions item={item} isItemInCart={items.some((x) => x.id === item.id)} setShowModal={() => 1}/>
+                     </TableCell>
+                  ))
+               }
+
+            </TableRow>
          </TableBody>
       </Table>
    );

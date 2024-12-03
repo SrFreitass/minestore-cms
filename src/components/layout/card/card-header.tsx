@@ -27,13 +27,13 @@ export function CardHeader({ item, direction, setShowModal }: CardHeaderProps) {
         'relative flex flex-col items-center justify-center'
     );
 
-    
+
 
     return (
         <div className={cardHeaderClasses} onClick={() => setShowModal(true)}>
             <FeaturedBadge item={item} className="absolute -top-8" />
             {
-                item.last_units ?  
+                item.last_units ?
                 <div className='relative bottom-8'>
                     <Badge variant="success" className="mx-auto w-max px-4 py-2 bg-red-500 flex gap-1 hover:bg-red-500">
                         <Clock size={22} />
