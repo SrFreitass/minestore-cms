@@ -9,8 +9,35 @@ import { useEffect, useState } from 'react';
 
 const { updateItemCount, removeItemFromCart, getCart } = getEndpoints(fetcher);
 
-export const DropmenuCartItem = ({ item }: { item: any }) => {
+type TItemCart = {
+   name: string;
+   image: string;
+   cid: number;
+   price: number;
+   virtual_price: number;
+   is_virtual_currency_only: number;
+   id: number;
+   payment_type: number;
+   count: number;
+   quantityGlobalLimit: number | null;
+   quantityGlobalCurrentLimit: number | null;
+   quantityUserLimit: number | null;
+   quantityUserCurrentLimit: number | null;
+   is_unavailable: boolean;
+   allow_select_server: number;
+   allowed_servers: Array<{
+       server_id: number;
+       server_name: string;
+   }>;
+   selected_server: number;
+   is_any_price: number;
+   min_price: number;
+   is_subs: number;
+}
+
+export const DropmenuCartItem = ({ item }: { item: TItemCart }) => {
    const { setCart } = useCartStore();
+
 
    const [quantity, setQuantity] = useState(item.count);
    const [loading, setLoading] = useState(false);
