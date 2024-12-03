@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: { name: string[] } }) {
         return <></>
     }
 
-    
+
     const { category, items, subcategories } = response;
 
     const subCategory = subcategories?.find((x) => x.category.url === params.name.join('/'));
@@ -44,7 +44,7 @@ export default async function Page({ params }: { params: { name: string[] } }) {
     subCategory?.items.splice(3, 1)
 
     console.log(subCategory?.items[0].comparison, 'server')
-    
+
 
     const jsonLd = {
         '@context': 'https://schema.org',
@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: { name: string[] } }) {
     };
 
     return (
-        <div className="w-full flex-col rounded-[10px] bg-card">
+        <div className="w-full flex-col bg-card rounded-lg border">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

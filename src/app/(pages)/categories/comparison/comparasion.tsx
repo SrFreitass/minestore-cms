@@ -2,13 +2,13 @@
 
 import { DiscountTag } from '@/components/base/price/price';
 import {
-   Table,
-   TableBody,
-   TableCaption,
-   TableCell,
-   TableHead,
-   TableHeader,
-   TableRow
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow
 } from '@/components/ui/table';
 import { useCartStore } from '@/stores/cart';
 import { TCategory, TSubCategory } from '@/types/category-details';
@@ -61,7 +61,7 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
    }, [selectedItems]);
 
    return (
-      <Table className="w-full table-fixed overflow-x-auto text-muted-foreground">
+      <Table className="w-full table-fixed overflow-x-auto text-muted-foreground rounded-lg border-none">
          <TableCaption hidden>A list with all the comparisons</TableCaption>
          <TableHeader>
             <TableRow ref={tableHeadContainerRef}>
@@ -110,11 +110,16 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                </TableCell>
                {
                   selectedItems.map((item, i) => (
-                     <TableCell key={i} className='text-center'>
+                     <TableCell key={i} className='text-center border border-[#333]'>
                         <span className='text-lg line-through flex justify-center gap-2'>
-                           R$ {(item.price + item.discount).toFixed(2).replace('.', ',')}
+
                            {/* item.discount not discount :) */}
-                           <DiscountTag discount={item.discount}/>
+                           { item.discount <= 0 ?  <br></br> :
+                              <>
+                                 R$ {(item.price + item.discount).toFixed(2).replace('.', ',')}
+                                 <DiscountTag discount={item.discount}/>
+                              </>
+                           }
                         </span>
                         <span className="font-bold text-2xl text-white flex justify-center items-end">
                            <span className='text-lg'>R$</span>{item.price.toFixed(2).replace('.', ',')}
