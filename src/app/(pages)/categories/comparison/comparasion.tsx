@@ -16,7 +16,7 @@ import { TItem } from '@/types/item';
 import { Card } from '@layout/card/card';
 import { CardActions } from '@layout/card/card-actions';
 import { BadgeCheck, XCircle } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { LegacyRef, useEffect, useRef } from 'react';
 import { extractCategoryComparisons, extractSubCategoryComparisons } from '../utils/utils';
 
 type ComparisonProps = {
@@ -64,7 +64,7 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
       <Table className="w-full table-fixed overflow-x-auto text-muted-foreground rounded-lg border-none">
          <TableCaption hidden>A list with all the comparisons</TableCaption>
          <TableHeader>
-            <TableRow ref={tableHeadContainerRef}>
+            <TableRow ref={tableHeadContainerRef as LegacyRef<HTMLTableRowElement>}>
                <TableHead className="sticky left-0 z-10 w-[200px]">
                   <span className="sr-only">Features</span>
                </TableHead>
