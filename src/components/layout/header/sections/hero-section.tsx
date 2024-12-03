@@ -99,7 +99,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
             <div className="relative z-10 translate-y-12">
                 <Link href="/">
                     <Image
-                        className="levitate mx-4 h-[338px] w-[381px]"
+                        className="levitate mx-4 h-[338px] w-[381px] !scale-[0.9]"
                         src={Logo}
                         width={325}
                         height={316}

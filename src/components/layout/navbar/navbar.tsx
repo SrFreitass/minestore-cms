@@ -19,7 +19,7 @@ export const Navbar: FC<NavbarProps> = () => {
 
    console.log(route)
 
-   const homeIcon = route === '/team' ? '-ml-[16.5rem]' : '-ml-1'
+   const homeIcon = route === '/team' ? '-mt-[1.75rem] -ml-[17.75rem] -z-10 w-20 h-8' : '-ml-1'
    const [openMenu, setOpenMenu] = useState(false);
 
    const toggleMenu = () => {
@@ -65,7 +65,7 @@ export const Navbar: FC<NavbarProps> = () => {
            </ul>
            <ul className='flex justify-around items-center font-bold text-white w-full relative max-w-[1520px] max-md:hidden'>
               <div className='flex gap-8'>
-                  <li>
+                 <li className={`${route === '/team' ? 'text-purple' : ''}`}>
                      <Link href={'/team'}>
                         Equipe
                      </Link>
@@ -80,7 +80,10 @@ export const Navbar: FC<NavbarProps> = () => {
                  <Link href='/'>
                     Loja
                  </Link>
-                 <ReactSVG src='/icons/ant-design_home-filled.svg' className={`transition-all absolute bg-white p-1 px-2 rounded-3xl mt-3 ${homeIcon}`} />
+                 <div className={`transition-all absolute bg-white rounded-3xl mt-3 ${homeIcon}`}>
+                    <p className={`${route === '/team' ? '' : 'hidden'}`}>a</p>
+                    <ReactSVG src='/icons/ant-design_home-filled.svg' className={` p-1 px-2 ${route === '/team' ? 'hidden' : ''}`} />
+                 </div>
               </li>
 
               <div className='flex gap-8'>
