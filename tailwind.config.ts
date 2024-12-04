@@ -71,7 +71,7 @@ const config = {
                 foreground: 'hsl(var(--foreground))',
                'orange': 'hsl(36, 100%, 61%)',
                'purple': '#7E49FF',
-               'item-card': '#25262F',
+               'royal-sec': '#25262F',
 
 
                 primary: {

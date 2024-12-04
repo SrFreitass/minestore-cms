@@ -8,7 +8,7 @@ type PaymentTotalProps = {
 
 export const PaymentTotal: FC<PaymentTotalProps> = ({ total, subTotal, discount }) => {
     return (
-        <div className="flex flex-col justify-between items-start gap-6 py-4 px-8 bg-royal-sec-2 rounded-md max-w-96">
+        <div className="flex flex-col justify-between items-start gap-6 py-4 px-8 bg-royal-sec rounded-md max-w-96">
             <div className="w-full">
                 <h2 className="font-bold text-white">Finalizando sua compra</h2>
 

@@ -56,8 +56,8 @@ function CartItems({ items }: { items: TCart['items'] }) {
     }
 
     return (
-        <div className='bg-royal-sec-2 px-6 rounded-md'>
-            <Table className="my-4 bg-royal-sec-2">
+        <div className='bg-royal-sec px-6 rounded-md'>
+            <Table className="my-4 bg-royal-sec">
                 <TableHeader className="">
                     <TableRow>
                         
