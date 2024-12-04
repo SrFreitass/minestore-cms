@@ -89,7 +89,7 @@ export const RedeemCoupon = () => {
 
     return (
         <>
-            <div className="flex-col gap-4 py-4 px-8 bg-[#25262F] rounded-md">
+            <div className="flex-col gap-4 py-4 px-8 bg-royal-sec-2 rounded-md">
                 <div>
 
                     <Form {...form}>

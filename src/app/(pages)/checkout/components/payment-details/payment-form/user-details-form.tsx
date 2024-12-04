@@ -23,7 +23,7 @@ export const UserDetailsForm = () => {
     }
 
     return (
-        <div className="p-8 flex bg-[#25262F] rounded-md">
+        <div className="p-8 flex bg-royal-sec-2 rounded-md">
             <div className="space-y-4 w-full">
                 <h2 className="text-2xl font-bold text-white">
                     Primeiras etapas

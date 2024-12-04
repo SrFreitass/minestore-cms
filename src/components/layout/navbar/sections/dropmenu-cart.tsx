@@ -26,7 +26,7 @@ export function DropmenuCart() {
             <ShoppingCart/>
          </div>
       </DropdownMenuTrigger>
-      {items.length >= 1  ? <DropdownMenuContent className="w-96 flex flex-col items-end bg-[#25262F] p-4">
+      {items.length >= 1  ? <DropdownMenuContent className="w-96 flex flex-col items-end bg-royal-sec-2 p-4">
         <DropdownMenuLabel className="text-lg text-center self-center">Meu carrinho</DropdownMenuLabel>
 
         <DropdownMenuGroup className="w-full">

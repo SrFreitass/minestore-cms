@@ -44,7 +44,7 @@ export const ItemDetails: FC<DetailsProps> = ({ show, onHide, id, route }) => {
 
     return (
         <Dialog open={show} onOpenChange={onHide}>
-            <DialogContent className="w-full max-w-[800px] bg-[#25262F]">
+            <DialogContent className="w-full max-w-[800px] bg-royal-sec-2">
                 <DialogHeader className="">
                     <DialogTitle className="text-card-foreground text-white">{details?.name}</DialogTitle>
                 </DialogHeader>

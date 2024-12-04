@@ -55,7 +55,7 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
             <div
                 onClick={handleClick}
                 className={joinClasses(
-                    "before:content-[' '] h-20 flex-row items-center bg-[#25262F] before:absolute before:-m-6 before:h-10 before:w-1.5 before:rounded-r-lg before:bg-transparent before:transition-all hover:before:bg-orange hover:text-accent-foreground",
+                    "before:content-[' '] h-20 flex-row items-center bg-royal-sec-2 before:absolute before:-m-6 before:h-10 before:w-1.5 before:rounded-r-lg before:bg-transparent before:transition-all hover:before:bg-orange hover:text-accent-foreground",
                     { 'before:bg-orange': isActive },
                 )}
             >

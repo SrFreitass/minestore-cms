@@ -45,7 +45,7 @@ export const PaymentMethodForm = ({ items }: PaymentMethodFormProps) => {
     }, [items]);
 
     return (
-        <div className="space-y-4 rounded-md border border-border p-4 bg-[#25262F]">
+        <div className="space-y-4 rounded-md border border-border p-4 bg-royal-sec-2">
             <FormField
                 name="paymentMethod"
                 render={({ field }) => (

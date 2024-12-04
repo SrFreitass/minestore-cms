@@ -9,7 +9,7 @@ export const PaymentFormSubmit = ({ loading }: { loading: boolean }) => {
     const t = useTranslations('checkout');
 
     return (
-        <div className="flex flex-col items-start justify-between px-8 bg-[#25262F] relative bottom-5 pb-4">
+        <div className="flex flex-col items-start justify-between px-8 bg-royal-sec-2 relative bottom-5 pb-4">
             <FormField
                 name="privacyPolicy"
                 render={({ field }) => (
