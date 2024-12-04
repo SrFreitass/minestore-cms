@@ -19,7 +19,16 @@ export const Navbar: FC<NavbarProps> = () => {
 
    console.log(route)
 
-   const homeIcon = route === '/team' ? '-mt-[1.75rem] -ml-[17.75rem] -z-10 w-20 h-8' : '-ml-1'
+
+   const homeIcon = route === '/team' ? {
+      marginTop: '-1.75rem',
+      marginLeft: '-17.75rem',   
+      width: '5rem',
+      height: '2rem',
+      zIndex: -1
+   } : {
+      marginLeft: '-.3rem'
+   }
    const [openMenu, setOpenMenu] = useState(false);
 
    const toggleMenu = () => {
@@ -80,7 +89,7 @@ export const Navbar: FC<NavbarProps> = () => {
                  <Link href='/'>
                     Loja
                  </Link>
-                 <div className={`transition-all absolute bg-white rounded-3xl mt-3 ${homeIcon}`}>
+                 <div className={`transition-all absolute bg-white rounded-3xl mt-3`} style={homeIcon}>
                     <p className={`${route === '/team' ? '' : 'hidden'}`}>a</p>
                     <ReactSVG src='/icons/ant-design_home-filled.svg' className={` p-1 px-2 ${route === '/team' ? 'hidden' : ''}`} />
                  </div>

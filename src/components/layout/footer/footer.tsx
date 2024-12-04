@@ -116,7 +116,7 @@ function SocialIcons({ settings }: { settings: TSettings }) {
         <div className="flex flex-col items-end gap-4 font-bold max-md:items-start">
            <div className='flex gap-6'>
             {Object.entries(socials).map(([key, value], index) => (
-                <Link key={index} href={value} className='bg-white/25 p-2 rounded-md'>
+                <Link key={index} href={value} className='bg-white/25 p-2 rounded-md transition-all hover:scale-110'>
                     <ReactSVG
                         src={`/icons/${key}.svg`}
                         width={32}
@@ -124,6 +124,7 @@ function SocialIcons({ settings }: { settings: TSettings }) {
                         beforeInjection={(svg) => {
                             svg.classList.add('w-6', 'h-6');
                         }}
+                        className='hover:text-white transition-all'
                     />
                 </Link>
             ))}
