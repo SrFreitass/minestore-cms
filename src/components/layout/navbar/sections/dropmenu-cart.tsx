@@ -78,7 +78,7 @@ export function DropmenuCart() {
               ))} */}
         </DropdownMenuGroup>
         <Link href="/checkout">
-           <Button className="mt-2">Finalizar compra</Button>
+           <Button className="mt-2 px-4">Finalizar compra</Button>
         </Link>
       </DropdownMenuContent> : null}
     </DropdownMenu>

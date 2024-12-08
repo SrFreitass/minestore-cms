@@ -2,7 +2,7 @@ import { useCartActions } from '@/app/(pages)/categories/utils/use-cart-actions'
 import { Button } from '@/components/ui/button';
 import { TItem } from '@/types/item';
 import { joinClasses } from '@helpers/join-classes';
-import { InfoIcon, Trash2, ShoppingCart, Loader2, Plus } from 'lucide-react';
+import { Loader2, Plus, Trash2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -127,7 +127,7 @@ function AddToCartButton({
         <Button
             onClick={handleItem}
             disabled={!isAvailable || loading || addToCartPressed}
-            className={joinClasses('h-[50px] gap-2', !displayFull && 'min-w-[180px]')}
+            className={joinClasses('h-[50px]', !displayFull && 'min-w-auto')}
         >
             <ButtonIcon isItemInCart={isItemInCart} loading={loading} />
             {isAvailable ? 'Adicionar ao carrinho' : 'Indisponível'}

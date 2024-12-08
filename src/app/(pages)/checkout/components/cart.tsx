@@ -57,10 +57,10 @@ function CartItems({ items }: { items: TCart['items'] }) {
 
     return (
         <div className='bg-royal-sec px-6 rounded-md'>
-            <Table className="my-4 bg-royal-sec">
+            <Table className="my-4 bg-royal-sec border-transparent">
                 <TableHeader className="">
-                    <TableRow>
-                        
+                    <TableRow className='border-transparent'>
+
                         <TableHead className="w-[250px] text-base font-bold text-white md:text-lg">
                             {/* {t('name')} */} Produto
                         </TableHead>
@@ -74,7 +74,7 @@ function CartItems({ items }: { items: TCart['items'] }) {
                 </TableHeader>
                 <TableBody>
 
-                    {items?.map((item) => 
+                    {items?.map((item) =>
                     <>
                         <br/>
                         <CartItem key={item.id} item={item} />

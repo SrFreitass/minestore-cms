@@ -9,7 +9,7 @@ export const PaymentFormSubmit = ({ loading }: { loading: boolean }) => {
     const t = useTranslations('checkout');
 
     return (
-        <div className="flex flex-col items-start justify-between px-8 bg-royal-sec relative bottom-5 pb-4">
+        <div className="flex flex-col items-start justify-between px-8 bg-royal-sec relative bottom-5 pb-8 rounded-b-lg">
             <FormField
                 name="privacyPolicy"
                 render={({ field }) => (
@@ -30,7 +30,7 @@ export const PaymentFormSubmit = ({ loading }: { loading: boolean }) => {
             <Button
                 type="submit"
                 disabled={loading}
-                className="mt-4 flex w-full items-center justify-center gap-2 md:w-auto text-base"
+                className="mt-4 px-4 flex w-full items-center justify-center gap-2 md:w-auto text-base"
             >
                 {loading && <Loader2 className="animate-spin" size={24} />}
                 Finalizar compra

@@ -109,7 +109,7 @@ export const RedeemCoupon = () => {
                                                 />
                                                 <Button
                                                     type="submit"
-                                                    className="gap-2 max-md:w-full"
+                                                    className="gap-2 px-4 max-md:w-full"
                                                     disabled={loading || !field.value}
                                                 >
                                                     {loading && (
