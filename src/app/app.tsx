@@ -6,7 +6,6 @@ import { getDictionary } from '@/core/i18n';
 import { LocaleProvider } from '@/core/i18n/locale-provider';
 import { Init } from '@/core/init/init';
 import { extractConfigValue } from '@helpers/extract-config-value';
-import { langStorage } from '@helpers/lang-storage';
 import { Footer } from '@layout/footer/footer';
 import { Header } from '@layout/header/header';
 import { Sidebar } from '@layout/sidebar/sidebar';
@@ -26,7 +25,7 @@ export const App: FC<PropsWithChildren> = async ({ children }) => {
 
     const user = await getUser().catch(() => undefined);
 
-    const messages = await getDictionary(langStorage.get() || 'pt-BR');
+    const messages = await getDictionary('pt-BR');
 
     // const file = await fs.readFile('./config.json', 'utf8');
     // const data = JSON.parse(file);
@@ -46,9 +45,9 @@ export const App: FC<PropsWithChildren> = async ({ children }) => {
                 <AuthProvider initialUser={user}>
                     <LocaleProvider initialMessages={messages} systemLanguage={systemLanguage}>
                         <Suspense>
-                            <Header 
-                                settings={settings} 
-                                particles={particles} 
+                            <Header
+                                settings={settings}
+                                particles={particles}
                                 announcement={announcements?.title}
                             />
                             <Container className="mt-4 flex-col items-start gap-5 lg:flex-row">
@@ -74,7 +73,7 @@ export const App: FC<PropsWithChildren> = async ({ children }) => {
                                 error: {
                                     duration: 5000,
                                 },
-                            }} 
+                            }}
                             />
                         </Suspense>
                     </LocaleProvider>

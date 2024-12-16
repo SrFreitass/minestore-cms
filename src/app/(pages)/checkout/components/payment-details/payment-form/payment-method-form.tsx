@@ -60,8 +60,6 @@ export const PaymentMethodForm = ({ items }: PaymentMethodFormProps) => {
                             defaultValue={field.value}
                         >
                          {paymentMethods.map((method, index) => {
-                           if(method.name !== 'PayPalIPN' && method.name !== 'MercadoPago' && method.name !== 'Stripe') return null;
-
                             return (<div key={index}>
                                <RadioGroupItem
                                   value={method.name}
@@ -75,7 +73,7 @@ export const PaymentMethodForm = ({ items }: PaymentMethodFormProps) => {
                                         font-bold text-lg
                                         "
                                >
-                                  {/* {method.name === 'Cordarium' ? 'Crypto' : method.name} */}
+                                 {method.name === 'Cordarium' ? 'Crypto' : method.name}
                                   <Image
                                      className="h-20 w-28 rounded object-contain"
                                      src={`/media/payments/${method.name.toLowerCase()}.svg`}

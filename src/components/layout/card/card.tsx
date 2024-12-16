@@ -31,7 +31,7 @@ export function Card({ item, direction = 'col', hideButton, isCash, showProduct 
     const path = usePathname();
 
     return (
-        <div className={cn('relative', direction === 'col' ? 'h-full' : '', '!border-none')}>
+       <div className={cn('relative', direction === 'col' ? 'h-full' : '', '!border-none')} title={isCash ? "" : "Clique para saber mais"}>
             <CardLayout direction={direction} className={item.featured ? 'featured-package' : ''}>
                <CardHeader item={item} direction={direction} setShowModal={isCash ? () => 0: setShowModal}/>
                <CardActions
