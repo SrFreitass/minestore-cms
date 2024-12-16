@@ -27,12 +27,10 @@ export const App: FC<PropsWithChildren> = async ({ children }) => {
 
     const messages = await getDictionary('pt-BR');
 
-    // const file = await fs.readFile('./config.json', 'utf8');
-    // const data = JSON.parse(file);
     const defaultTheme = extractConfigValue('theme', data) || ('system' as string);
     const particles = extractConfigValue('particles', data) || ('Enabled' as string);
 
-    const systemLanguage = settings.system_language.code || 'en';
+    const systemLanguage = 'pt-BR';
 
     return (
         <ConfigProvider config={data}>
