@@ -35,7 +35,7 @@ const PriceTag: FC<PriceTagProps> = ({
 }) => {
     const { settings } = useSettingsStore();
 
-    let displayPrice = 'Free';
+    let displayPrice = 'R$0,00';
     let discountedPrice: string | null = null;
 
     const hasDiscountOrOriginalPrice = discount || originalPrice;
