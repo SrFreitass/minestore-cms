@@ -41,9 +41,6 @@ const PriceTag: FC<PriceTagProps> = ({
     const hasDiscountOrOriginalPrice = discount || originalPrice;
     const effectivePrice = originalPrice || price + (discount || 0);
 
-    // delete this line in production
-    currency = 'R$';
-
     if (isVirtual) {
         displayPrice = `${settings?.virtual_currency}`;
     } else if (price > 0) {

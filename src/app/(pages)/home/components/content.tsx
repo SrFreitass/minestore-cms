@@ -1,7 +1,5 @@
 'use client';
 
-
-import IndexBanner from '@/../public/index-banner.png';
 import { Button } from '@/components/ui/button';
 import { useSettingsStore } from '@/stores/settings';
 import { getCacheBuster } from '@helpers/cache-buster';
@@ -22,7 +20,7 @@ export function Content() {
             </div>
 
             <div
-               className='p-10 h-[30rem] bg-no-repeat bg-cover bg-center flex items-end justify-between rounded-md'
+               className='p-10 h-[30rem] bg-no-repeat bg-cover bg-center flex items-end justify-between rounded-md max-md:flex-col max-md:justify-end max-md:p-6 max-md:items-start max-md:gap-4'
                style={{
                   backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0) 70%), url(${settings?.last_news?.banner || '/news-banner.png'})`,
                }}
@@ -32,7 +30,7 @@ export function Content() {
                   <p className='text-xl font-medium'>{settings?.last_news?.description || 'O maior evento de clãs já realizado está chegando...'}</p>
                </div>
 
-               <Button className='py-6 font-extrabold text-base'>
+               <Button className='py-6 px-4 font-extrabold text-base'>
                   Continuar lendo
                </Button>
             </div>
@@ -49,11 +47,12 @@ function BannerSection() {
     return (
         <div className="w-full">
             <Image
-               src={`${IndexBanner.src}?${cacheBuster}`}
+               src={`/img/banner.png?${cacheBuster}`}
                alt="Banner"
-               width={845}
+               width={1000}
                height={196}
-               className="w-full h-auto"
+               quality={100}
+               className="w-full h-auto rounded-md"
                onError={(e) => {
                   e.currentTarget.remove();
                }}

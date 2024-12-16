@@ -1,11 +1,11 @@
 'use client';
 
-import { FC } from 'react';
 import { Price } from '@/components/base/price/price';
 import { TProfile } from '@/types/profile';
 import { Card } from '@layout/card/card';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import { FC } from 'react';
 import { ReactSVG } from 'react-svg';
 
 type ProfileViewProps = {
@@ -49,7 +49,7 @@ export const ProfileView: FC<ProfileViewProps> = ({ profile }) => {
                      <span className="font-medium text-white">
                         {t('registration-date')}
                      </span>
-                     <span className='font-semibold text-green-400'>{profile.created.split('.')[0]}</span>
+                     <span className='font-semibold text-green-400'>{profile?.created?.split('.')[0]}</span>
                   </div>
                   <div className="flex gap-2 items-center">
                      <ReactSVG src='/icons/control-game.svg'/>
@@ -63,7 +63,7 @@ export const ProfileView: FC<ProfileViewProps> = ({ profile }) => {
          </div>
 
          <div className="mt-8 grid grid-cols-3 gap-8">
-            {profile.items.length <= 0 && profile?.items?.map((item, index) => <Card key={index} item={item} hideButton={true}/>)}
+            {profile?.items?.length <= 0 && profile?.items?.map((item, index) => <Card key={index} item={item} hideButton={true}/>)}
          </div>
 
          {profile?.items?.length === 0 && (

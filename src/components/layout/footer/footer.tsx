@@ -104,14 +104,6 @@ function Copyright({ settings }: { settings: TSettings }) {
 function SocialIcons({ settings }: { settings: TSettings }) {
     const socials = settings.socials;
 
-    // delete this line;
-    // mock data
-   settings.socials = {
-      discord: 'https://discord.gg/spotgames',
-      twitter: 'https://twitter.com/spotgamesbr',
-      instagram: 'https://www.instagram.com/spotgamesbr/',
-   };
-
     return (
         <div className="flex flex-col items-end gap-4 font-bold max-md:items-start">
            <div className='flex gap-6'>

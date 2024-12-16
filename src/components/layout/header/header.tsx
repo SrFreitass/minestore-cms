@@ -18,11 +18,12 @@ import './Header.css';
 type HeaderProps = {
     settings: TSettings;
     particles: string;
+    announcement?: string;
 };
 
-export const Header: FC<HeaderProps> = ({ settings }) => {
+export const Header: FC<HeaderProps> = ({ settings, announcement }) => {
     const { user } = useUserStore();
-    const cacheBuster = getModifiedCacheBuster(5);
+    const cacheBuster = getModifiedCacheBuster(5)
 
     return (
         <header className="relative">
@@ -52,8 +53,8 @@ export const Header: FC<HeaderProps> = ({ settings }) => {
                     <div className="absolute inset-0 -z-10 size-full rounded-md bg-cover opacity-20"></div>
 
                     <div className='w-full flex justify-center items-center gap-2 font-bold text-white text-start'>
-                       <ReactSVG src={settings.header_info?.icon || '/icons/bell.svg' } />
-                       {settings.header_info?.info || 'PROMOÇÃO DE INAUGURAÇÃO | DESCONTOS de até 99% OFF por TEMPO ILIMITADO!'}
+                       <ReactSVG src={'/icons/bell.svg'} />
+                       {announcement || 'SEM ANÚNCIOS NO MOMENTO'}
                     </div>
 
                 </div>
@@ -85,7 +86,7 @@ function DonationGoal({ goal }: { goal: TSettings['goals'] }) {
                     <p className="text-sm text-accent-foreground/80 sm:text-base">
                         <span className="sr-only">
                             The goal is {name} and the current amount is {filled} out of {goalValue}{' '}
-                            {currency?.name || 'USD'}
+                            {currency?.name || 'R$'}
                         </span>
                         {filled} / {goalValue} {currency?.name || ''}
                     </p>

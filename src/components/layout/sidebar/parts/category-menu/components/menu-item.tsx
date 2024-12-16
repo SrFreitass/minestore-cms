@@ -61,7 +61,7 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
             >
                 <CategoryImage image={image as string} isPageLink={isPageLink} />
 
-                <span className={joinClasses('ml-6 font-bold', isActive && 'text-primary')}>
+                <span className={joinClasses('ml-6 font-bold', isActive && 'text-orange')}>
                     {name}
                 </span>
                 {isSubMenu && (

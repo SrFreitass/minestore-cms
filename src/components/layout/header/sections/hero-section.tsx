@@ -1,4 +1,3 @@
-import Logo from '@/../public/logo.png';
 import { getEndpoints } from '@/api';
 import { notify } from '@/core/notifications';
 import { TSettings } from '@/types/settings';
@@ -96,11 +95,11 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
                </div>
            </Link>
 
-            <div className="relative z-10 translate-y-12">
+            <div className="relative z-10 translate-y-12 animate-pulse">
                 <Link href="/">
                     <Image
-                        className="levitate mx-4 h-[338px] w-[381px] !scale-[0.9]"
-                        src={Logo}
+                        className="mx-4 h-[338px] w-[381px] !scale-[0.9]"
+                        src={'/img/logo.png'}
                         width={325}
                         height={316}
                         quality={100}

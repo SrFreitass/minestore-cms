@@ -1,12 +1,11 @@
 'use client';
 
+import { useSettingsStore } from '@/stores/settings';
+import { TCategories } from '@/types/categories';
+import { getCacheBuster } from '@helpers/cache-buster';
+import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 import { MenuItem } from './components/menu-item';
-import { TCategories } from '@/types/categories';
-import { useTranslations } from 'next-intl';
-import { imagePath } from '@helpers/image-path';
-import { useSettingsStore } from '@/stores/settings';
-import { getCacheBuster } from '@helpers/cache-buster';
 
 type CategoryMenuProps = {
     categories: TCategories;
@@ -30,7 +29,7 @@ export const CategoryMenu: FC<CategoryMenuProps> = ({ categories }) => {
                         // image={imagePath(category.img) ? `${imagePath(category.img)}?${cacheBuster}` : null}
                         image={category.img}
                         url={`/categories/${category.url}`}
-                        subItems={category.subcategories}
+                        subItems={category?.subcategories}
                     />
                 ))}
 

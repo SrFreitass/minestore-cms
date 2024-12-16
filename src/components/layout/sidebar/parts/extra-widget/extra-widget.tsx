@@ -1,22 +1,17 @@
 'use client';
 
-import { FC } from 'react';
-import { RecentPurchases } from '@layout/recent-purchases/recent-purchases';
-import { useTranslations } from 'next-intl';
-import Image from 'next/image';
+import { getEndpoints } from '@/api';
+import { fetcher } from '@/api/client/fetcher';
+import { TAvalation } from '@/types/avaliation';
 import { TSettings } from '@/types/settings';
-import { Crown, Rocket } from 'lucide-react';
-import { UserReview } from './user-review';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
+import { FC } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { getEndpoints } from '@/api';
-import { fetcher } from '@/api/client/fetcher';
-import { TAvalation } from '@/types/avaliation';
-import Link from 'next/link';
+import { Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { UserReview } from './user-review';
 
 
 
@@ -44,9 +39,9 @@ export const ExtraWidget: FC<ExtraWidgetProps> = ({ settings, avalations }) => {
                      avalations.map((avalation) => {
                         return (
                             <SwiperSlide>
-                                <Link href={`/profile/${avalation.username}`}>
-                                    <UserReview username={avalation.username} stars={avalation.stars} description={avalation.description}/>
-                                </Link> 
+                                {/* <Link href={`/profile/${avalation.username}`}> */}
+                                <UserReview username={avalation.username} stars={avalation.stars} description={avalation.description}/>
+                                {/* </Link>  */}
                             </SwiperSlide>
                         )
                      })

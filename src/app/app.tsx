@@ -10,26 +10,26 @@ import { langStorage } from '@helpers/lang-storage';
 import { Footer } from '@layout/footer/footer';
 import { Header } from '@layout/header/header';
 import { Sidebar } from '@layout/sidebar/sidebar';
-import { promises as fs } from 'fs';
 import { FC, PropsWithChildren, Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
+import data from '../../config.json';
 import { ConfigProvider } from './providers/config-provider';
 import { ThemeProvider } from './providers/theme-provider';
 
-const { getUser, getSettings, getCategories, getAvalations } = getEndpoints(fetcher);
+const { getUser, getSettings, getCategories, getAvalations, getAnnouncement } = getEndpoints(fetcher);
 
 export const App: FC<PropsWithChildren> = async ({ children }) => {
     const settings = await getSettings();
     const categories = await getCategories();
+    const announcements = await getAnnouncement().catch(() => undefined);
     const avalations = await getAvalations().catch(() => undefined);
 
     const user = await getUser().catch(() => undefined);
 
-    const messages = await getDictionary(langStorage.get() || 'en');
+    const messages = await getDictionary(langStorage.get() || 'pt-BR');
 
-    const file = await fs.readFile(process.cwd() + '/config.json', 'utf8');
-    const data = JSON.parse(file);
-
+    // const file = await fs.readFile('./config.json', 'utf8');
+    // const data = JSON.parse(file);
     const defaultTheme = extractConfigValue('theme', data) || ('system' as string);
     const particles = extractConfigValue('particles', data) || ('Enabled' as string);
 
@@ -46,7 +46,11 @@ export const App: FC<PropsWithChildren> = async ({ children }) => {
                 <AuthProvider initialUser={user}>
                     <LocaleProvider initialMessages={messages} systemLanguage={systemLanguage}>
                         <Suspense>
-                            <Header settings={settings} particles={particles} />
+                            <Header 
+                                settings={settings} 
+                                particles={particles} 
+                                announcement={announcements?.title}
+                            />
                             <Container className="mt-4 flex-col items-start gap-5 lg:flex-row">
                                 <Sidebar settings={settings} categories={categories} avalations={avalations || []}/>
                                 <main className="w-full flex-1 overflow-x-auto">{children}</main>

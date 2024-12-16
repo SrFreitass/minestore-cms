@@ -48,8 +48,8 @@ function CartItems({ items }: { items: TCart['items'] }) {
 
     if (items.length === 0) {
         return (
-            <div className="mt-12 flex-col items-center text-center">
-                <h1 className="text-2xl font-bold text-primary">{t('empty-cart-title')}</h1>
+            <div className="mt-4 flex-col items-center text-center">
+                <h1 className="text-2xl font-bold text-white">{t('empty-cart-title')}</h1>
                 <p className="text-balance">{t('empty-cart-description')}</p>
             </div>
         );

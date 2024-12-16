@@ -92,10 +92,7 @@
         --ring: var(--hue) 100% 50%;
     }
 
-    --clr-card: #1f2937;
-    --clr-1: #6420aa;
-    --clr-2: #ff3ea5;
-    --clr-3: #ff7ed4;
+
 }
 
 html,
@@ -141,7 +138,7 @@ body {
 }
 
 .stone-pattern {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0,0,0,0.8)), url("https://s3-alpha-sig.figma.com/img/3ad7/fd2d/413af44f28971008b9d162aeca5b27c7?Expires=1733702400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=A-aP8ojDKSuUDmFjbpLgqsdxW9rmjnS7HiBGMWtjEExbch2x~1Nado74~gTQ~8fEp7lmjYKKbmF872nEJrIEwDTtL5u~-kurOdNV903EZwgQu1hRByz0DLes~gRNk9Ua5Eoaiad30JAi~UCv7w-svlH8nlZuVwcGotw3iSvLeM8bcSlgd-akiCyAUCaJe6zLCz5eefnKyk9yLbd0onK5EsrVqkwYbhIKG0mSTto01fWsH5K7Kt-rZdZbcTAvmL7OZVPdueF0EsqY4nvBmC6PN9NFBQ2uI1ewiIerikFVEeQOooOEnNfZIi3wbIf2XaCS6RbHOJVzpkBduEr9-JRAUQ__");
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0,0,0,0.8)), url("/img/checkout_banner.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
