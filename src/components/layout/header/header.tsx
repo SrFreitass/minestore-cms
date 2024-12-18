@@ -25,6 +25,14 @@ export const Header: FC<HeaderProps> = ({ settings, announcement }) => {
     const { user } = useUserStore();
     const cacheBuster = getModifiedCacheBuster(5)
 
+    announcement = announcement?.split("").map((char) => {
+       if(!isNaN(Number(char)) || char === "%") {
+          return char;
+       }
+
+       return char.toLowerCase() === char ? `<span class="font-normal">${char}</span>` : char
+    }).join("")
+
     return (
         <header className="relative">
 
@@ -54,7 +62,7 @@ export const Header: FC<HeaderProps> = ({ settings, announcement }) => {
 
                     <div className='w-full flex justify-center items-center gap-2 font-bold text-white text-start'>
                        <ReactSVG src={'/icons/bell.svg'} />
-                       {announcement || 'SEM ANÚNCIOS NO MOMENTO'}
+                       <h2 dangerouslySetInnerHTML={{ __html: announcement || 'SEM ANÚNCIOS NO MOMENTO' }}/>
                     </div>
 
                 </div>
