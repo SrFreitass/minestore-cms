@@ -108,7 +108,6 @@ export function PaymentForm() {
             ) : null}
             <FormProvider {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-
                     <UserDetailsForm />
 
                     <ReferralCode />

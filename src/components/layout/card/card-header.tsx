@@ -133,7 +133,7 @@ function CardHeaderImage({
     return (
         <div>
             <Image
-                src={imageWithCacheBuster}
+                src={image}
                 alt={item.name}
                 width={imageSize}
                 height={imageSize}

@@ -35,7 +35,7 @@ const PriceTag: FC<PriceTagProps> = ({
 }) => {
     const { settings } = useSettingsStore();
 
-    let displayPrice = 'Free';
+    let displayPrice = 'R$0,00';
     let discountedPrice: string | null = null;
 
     const hasDiscountOrOriginalPrice = discount || originalPrice;
@@ -60,7 +60,7 @@ const PriceTag: FC<PriceTagProps> = ({
                         <s className="text-zinc-600 line-through flex flex-row-reverse">
                             {currency} {effectivePrice.toFixed(2).replace('.', ',')}
                         </s>
-                        <DiscountTag discount={discount as number}/>
+                        <DiscountTag discount={(discount || 0) / effectivePrice * 100}/>
                     </div>
                     <span className={`text-2xl text-white font-bold`}>
                         <span className='text-base font-medium'>

@@ -127,7 +127,7 @@ function AddToCartButton({
         <Button
             onClick={handleItem}
             disabled={!isAvailable || loading || addToCartPressed}
-            className={joinClasses('h-[50px]', !displayFull && 'min-w-auto')}
+            className={joinClasses('h-[50px] px-4', !displayFull && 'min-w-auto')}
         >
             <ButtonIcon isItemInCart={isItemInCart} loading={loading} />
             {isAvailable ? 'Adicionar ao carrinho' : 'Indisponível'}

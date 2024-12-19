@@ -118,7 +118,7 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                            { item.discount <= 0 ?  <br></br> :
                               <>
                                  R$ {(item.price + item.discount).toFixed(2).replace('.', ',')}
-                                 <DiscountTag discount={item.discount}/>
+                                 <DiscountTag discount={item.discount / (item.price + item.discount) * 100}/>
                               </>
                            }
                         </span>
