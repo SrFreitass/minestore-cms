@@ -18,9 +18,8 @@ export const CategoryMenu: FC<CategoryMenuProps> = ({ categories }) => {
 
     return (
         <aside className="h-fit rounded-[10px] bg-card p-6 border-border border-2">
-            <ul className="space-y-8">
-                
-
+            <ul className="space-y-3">
+                <h2 className='font-bold text-2xl text-orange'>Explorar agora</h2>
                 {categories.map((category) => (
                     <MenuItem
                         key={category.idx}

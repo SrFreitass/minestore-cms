@@ -8,8 +8,8 @@ import {
     DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { useCartStore } from "@/stores/cart";
-import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
+import { ReactSVG } from "react-svg";
 import { DropmenuCartItem } from "./dropmenu-cart-item";
 
 export function DropmenuCart() {
@@ -19,11 +19,11 @@ export function DropmenuCart() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-         <div className="cursor-pointer bg-white/45 p-2 rounded-md absolute right-4">
+         <div className="cursor-pointer bg-white/45 p-2 rounded-md absolute right-4 w-12 h-12 flex items-center justify-center">
             <span className={`${items.length >= 1 ? 'bg-orange' : 'bg-white'}  size-4 rounded-full absolute text-center font-semibold -top-2 -right-2`}>
-               <span className="relative bottom-[2.5px] left-[1px]">{items.length}</span>
+               <span className="relative bottom-[5px] left-[.5px] text-[12px] font-bold">{items.length}</span>
             </span>
-            <ShoppingCart/>
+            <ReactSVG src="/icons/cart-icon.svg"/>
          </div>
       </DropdownMenuTrigger>
       {items.length >= 1  ? <DropdownMenuContent className="w-96 flex flex-col items-end bg-royal-sec p-4">

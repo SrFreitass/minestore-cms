@@ -98,7 +98,7 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
             <div className="relative z-10 translate-y-12 animate-pulse">
                 <Link href="/">
                     <Image
-                        className="mx-4 h-[338px] w-[381px] !scale-[0.9]"
+                        className="mx-4"
                         src={'/img/logo.png'}
                         width={325}
                         height={316}

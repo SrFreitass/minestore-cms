@@ -58,7 +58,7 @@ const PriceTag: FC<PriceTagProps> = ({
                         <s className="text-zinc-600 line-through flex flex-row-reverse">
                             {currency} {effectivePrice.toFixed(2).replace('.', ',')}
                         </s>
-                        <DiscountTag discount={discount as number}/>
+                        <DiscountTag discount={(discount || 0) / effectivePrice * 100}/>
                     </div>
                     <span className={`text-xl text-white font-bold`}>
                         <span className='text-base font-medium'>
