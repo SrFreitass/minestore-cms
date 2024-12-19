@@ -50,6 +50,8 @@ const PriceTag: FC<PriceTagProps> = ({
             : null;
     }
 
+    currency = "R$";
+
     return (
          <p className={className}>
             {(discountedPrice && discountedPrice !== displayPrice) ? (
@@ -60,7 +62,7 @@ const PriceTag: FC<PriceTagProps> = ({
                         </s>
                         <DiscountTag discount={discount as number}/>
                     </div>
-                    <span className={`text-xl text-white font-bold`}>
+                    <span className={`text-2xl text-white font-bold`}>
                         <span className='text-base font-medium'>
                             {currency}
                         </span>
@@ -70,11 +72,10 @@ const PriceTag: FC<PriceTagProps> = ({
                </>
             ) : (
                <>
-                   <span className="text-xl text-white font-bold">
+                   <span className="text-2xl text-white font-bold flex items-end gap-1">
                         <span className='text-base font-medium'>
                             {currency}
                         </span>
-                        {' '}
                         {displayPrice.replace('.', ',')}
                     </span>
                </>

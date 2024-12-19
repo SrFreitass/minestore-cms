@@ -3,13 +3,14 @@ import { fetcher } from '@/api/server/fetcher';
 import './globals.css';
 
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Inter, Montserrat } from 'next/font/google';
 import 'react-quill/dist/quill.snow.css';
 import { App } from './app';
 
 const { getSettings } = getEndpoints(fetcher);
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'] });
+const inter = Inter({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'], variable: "--font-inter" });
 
 export const generateMetadata = async (): Promise<Metadata> => {
     try {
@@ -39,7 +40,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${montserrat.className} bg-background text-foreground/70`}>
+            <body className={`${montserrat.className} ${inter.variable} bg-background text-foreground/70`}>
                 <App>{children}</App>
             </body>
         </html>
