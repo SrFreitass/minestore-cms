@@ -2,13 +2,13 @@
 
 import { DiscountTag } from '@/components/base/price/price';
 import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow
+   Table,
+   TableBody,
+   TableCaption,
+   TableCell,
+   TableHead,
+   TableHeader,
+   TableRow
 } from '@/components/ui/table';
 import { useCartStore } from '@/stores/cart';
 import { TCategory, TSubCategory } from '@/types/category-details';
@@ -92,14 +92,15 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                      <TableCell
                         className={`sticky left-0 z-10 flex w-[200px] items-center justify-between ${bgColor} transition-colors`}
                      >
-                        <p>{comparison.name}</p>
+                        <p className='text-white font-medium'>{comparison.name}</p>
                      </TableCell>
-                     {comparison.comparisons.map((item) => (
-                        console.log(item, 'item'),
-                        <TableCell key={item.comparison_id} className="text-center">
-                           <ComparisonIcon value={item.value} type={comparison.type}/>
-                        </TableCell>
-                     ))}
+                     {comparison.comparisons.map((item, i) => {   
+                        return (
+                           <TableCell key={item.comparison_id} className="text-center">
+                              <ComparisonIcon value={item.value} type={comparison.type} prefixId={i} prefix={index === 0 ? selectedItems[i].name : undefined}/>
+                           </TableCell>
+                        );
+                     })}
                   </TableRow>
                   </>
                );
@@ -121,8 +122,8 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                               </>
                            }
                         </span>
-                        <span className="font-bold text-2xl text-white flex justify-center items-end">
-                           <span className='text-lg'>R$</span>{item.price.toFixed(2).replace('.', ',')}
+                        <span className="font-bold text-2xl text-white flex justify-center items-end gap-1">
+                           <span className='text-base mb-[1.1px] font-normal'>R$</span>{item.price.toFixed(2).replace('.', ',')}
                         </span>
                         <br/>
                         <CardActions item={item} isItemInCart={items.some((x) => x.id === item.id)} setShowModal={() => 1}/>
@@ -136,10 +137,10 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
    );
 };
 
-function ComparisonIcon({ value, type }: { value: string; type: number }) {
+function ComparisonIcon({ value, type, prefix, prefixId }: { value: string; type: number, prefix?: string, prefixId?: number }) {
    const isNumber = !isNaN(Number(value));
-
-   if (isNumber && type === 0) {
+   console.log(value);
+   if (isNumber && type === 0 && !prefix) {
       const valueToNumber = Number(value);
 
       if (valueToNumber === 1) {
@@ -149,5 +150,17 @@ function ComparisonIcon({ value, type }: { value: string; type: number }) {
       }
    }
 
-   return <span dangerouslySetInnerHTML={{ __html: value }} className={`font-bold ${value.includes('<p') ? 'text-lg font-minecraft' : ''} `}></span>;
+   if(type === 1 && !prefix) {
+      return <span className="text-sm text-white font-inter font-medium">{value}</span>
+   }
+
+   const prefixColors = [
+      "#55FE54",
+      "#FE52DF",
+      "#FF8401"
+   ]
+
+   const color = prefixColors[prefixId || 0];
+
+   return <span className={`font-bold text-lg font-minecraft`} style={{ color: `${color || prefixColors[0]}` }}>{prefix}</span>
 }

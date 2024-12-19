@@ -127,6 +127,7 @@ const config = {
             },
             fontFamily: {
                 'minecraft': ['var(--font-minecraft)'],
+                'inter': 'var(--font-inter)',
             }
         }
     },
