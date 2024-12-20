@@ -19,9 +19,9 @@ export function DropmenuCart() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-         <div className="cursor-pointer bg-white/45 p-2 rounded-md absolute right-4 w-12 h-12 flex items-center justify-center">
+         <div className="cursor-pointer bg-white/45 p-2 rounded-md absolute right-4 w-11 h-11 flex items-center justify-center">
             <span className={`${items.length >= 1 ? 'bg-orange' : 'bg-white'}  size-4 rounded-full absolute text-center font-semibold -top-2 -right-2`}>
-               <span className="relative bottom-[5px] left-[.5px] text-[12px] font-bold">{items.length}</span>
+               <span className="relative bottom-[5px] left-[.5px] text-[13px] font-bold">{items.length}</span>
             </span>
             <ReactSVG src="/icons/cart-icon.svg"/>
          </div>
