@@ -17,12 +17,15 @@ type MenuItemProps = {
 
 export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], isPageLink }) => {
     const pathname = usePathname();
-    const isActive = pathname === url;
-    const [expand, setExpand] = useState(false);
+    const isActive = pathname.includes(url);
+    const [expand, setExpand] = useState(isActive);
     const isSubMenu = subItems.length > 0;
     const router = useRouter();
 
     const menuRef = useRef<HTMLLIElement>(null);
+
+    console.log(name, url, isPageLink, pathname)
+
 
     const handleClick = () => {
         if (isSubMenu === false) {
@@ -40,6 +43,7 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
         }
     };
 
+
     useEffect(() => {
         if (expand) {
             document.addEventListener('click', handleOutsideClick);
@@ -56,7 +60,7 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
                 onClick={handleClick}
                 className={joinClasses(
                     "before:content-[' '] h-20 flex-row items-center bg-royal-sec before:absolute before:-m-6 before:h-10 before:w-1.5 before:rounded-r-lg before:bg-transparent before:transition-all hover:before:bg-orange hover:text-accent-foreground",
-                    { 'before:bg-orange': isActive },
+                    isActive && 'text-orange before:bg-orange'  
                 )}
             >
                 <CategoryImage image={image as string} isPageLink={isPageLink} />

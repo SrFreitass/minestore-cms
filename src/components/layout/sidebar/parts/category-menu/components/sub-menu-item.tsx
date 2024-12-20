@@ -27,7 +27,7 @@ export const SumMenuItem: FC<SubMenuItemProps> = ({ name, url }) => {
                         : 'bg-[#30313A] group-hover:bg-accent-foreground'
                 )}
             />
-            <span className="ml-4 font-bold">{name}</span>
+            <span className={`ml-4 font-bold ${isActive ? 'text-orange' : ''}`}>{name}</span>
         </Link>
     );
 };
