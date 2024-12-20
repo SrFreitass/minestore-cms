@@ -25,12 +25,12 @@ export const App: FC<PropsWithChildren> = async ({ children }) => {
 
     const user = await getUser().catch(() => undefined);
 
-    const messages = await getDictionary('pt-BR');
+    const messages = await getDictionary('br');
 
     const defaultTheme = extractConfigValue('theme', data) || ('system' as string);
     const particles = extractConfigValue('particles', data) || ('Enabled' as string);
 
-    const systemLanguage = 'pt-BR';
+    const systemLanguage = 'br';
 
     return (
         <ConfigProvider config={data}>

@@ -33,8 +33,8 @@ export function Card({ item, direction = 'col', hideButton, isCash, showProduct 
     return (
        <div className={cn('relative', direction === 'col' ? 'h-full' : '', '!border-none')} title={isCash ? "" : "Clique para saber mais"}>
             <CardLayout direction={direction} className={item.featured ? 'featured-package' : ''}>
-               <CardHeader item={item} direction={direction} setShowModal={isCash ? () => 0: setShowModal}/>
-               <CardActions
+                <CardHeader item={item} direction={direction} setShowModal={isCash ? () => 0: setShowModal}/>
+                <CardActions
                     hideButton={hideButton}
                     item={item}
                     direction={direction}
@@ -42,7 +42,7 @@ export function Card({ item, direction = 'col', hideButton, isCash, showProduct 
                     setShowModal={setShowModal}
                     available={isItemUnavailable}
                     displayFull={direction === 'col'}
-               />
+                />
             </CardLayout>
             <ItemDetails
                 show={showModal}

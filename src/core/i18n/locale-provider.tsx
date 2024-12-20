@@ -1,8 +1,8 @@
 'use client';
 
-import { FC, useEffect, useLayoutEffect, useState } from 'react';
-import { NextIntlClientProvider } from 'next-intl';
 import { useLangStore } from '@/stores/lang';
+import { NextIntlClientProvider } from 'next-intl';
+import { FC, useEffect, useLayoutEffect, useState } from 'react';
 import { getDictionary } from '.';
 
 interface LocaleProviderProps {
@@ -22,18 +22,18 @@ export const LocaleProvider: FC<LocaleProviderProps> = ({
     const [isMounted, setIsMounted] = useState(false);
 
     if (!lang) {
-        setLang(systemLanguage);
+        setLang("br");
     }
 
     useLayoutEffect(() => {
         const load = async () => {
             try {
-                const messages = await getDictionary(lang as string);
+                const messages = await getDictionary("br");
                 setMessages(messages);
             } catch (err) {
                 console.error('Error loading dictionary', err);
 
-                const messages = await getDictionary('en');
+                const messages = await getDictionary('br');
                 setMessages(messages);
             }
         };

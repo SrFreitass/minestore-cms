@@ -151,7 +151,7 @@ function FeaturedBadge({ item, className }: { item: TItem; className?: string })
     if (!item.featured) return null;
 
     return (
-        <Badge variant="default" className={cn('mx-auto w-max px-4 py-2 absolute mb-[19rem] flex gap-2 text-white', className)}>
+        <Badge variant="default" className={cn('mx-auto w-max px-4 py-2 pv absolute -mt-[0.5rem] flex gap-2 text-white text-base', className)}>
             <BadgeCheck size={16}/>
             {t('featured')}
         </Badge>

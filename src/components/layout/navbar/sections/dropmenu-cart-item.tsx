@@ -86,7 +86,7 @@ export const DropmenuCartItem = ({ item }: { item: TItemCart }) => {
    return (<DropdownMenuItem onSelect={(e) => e.preventDefault()}>
       <div className="flex items-center gap-2 font-bold bg-[#31323B] pl-2 pr-4 rounded-lg w-full h-12">
          <div className="flex items-center w-36">
-            <Image src={process.env.NEXT_PUBLIC_API_URL+item.image} alt={item.name} width={32} height={32} className="w-10"/>
+            <Image src={item.image} alt={item.name} width={32} height={32} className="w-10"/>
             <p>{item.name}</p>
          </div>
 

@@ -69,7 +69,7 @@ export const CartItem: FC<CartItemProps> = ({ item }) => {
                     {item.image ? (
                         <div className='flex items-center gap-22 font-bold text-white text-base'>
                             <Image
-                                src={`${process.env.NEXT_PUBLIC_API_URL}${item.image}`}
+                                src={item.image}
                                 alt=""
                                 width={80}
                                 height={80}

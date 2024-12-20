@@ -90,8 +90,11 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                      }
                   >
                      <TableCell
-                        className={`sticky left-0 z-10 flex w-[200px] items-center justify-between ${bgColor} transition-colors`}
+                        className={`sticky left-0 z-10 flex w-[200px] items-center justify-between ${bgColor} transition-colors group relative`}
                      >
+                        <span className="hidden absolute group-hover:animate-up group-hover:block rounded-md transition-all bg-royal-sec/80 px-4 text-white" style={{ animationFillMode: 'forwards' }}>
+                           {comparison.description}
+                        </span>
                         <p className='text-white font-medium'>{comparison.name}</p>
                      </TableCell>
                      {comparison.comparisons.map((item, i) => {   

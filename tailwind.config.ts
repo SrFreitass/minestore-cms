@@ -119,11 +119,21 @@ const config = {
                 'accordion-up': {
                     from: { height: 'var(--radix-accordion-content-height)' },
                     to: { height: '0' }
+                },
+                'up': {
+                    from: { 
+                        opacity: '0',
+                     },
+                    to: { 
+                        opacity: '1',
+                        marginBottom: '3rem',
+                    }
                 }
             },
             animation: {
                 'accordion-down': 'accordion-down 0.2s ease-out',
-                'accordion-up': 'accordion-up 0.2s ease-out'
+                'accordion-up': 'accordion-up 0.2s ease-out',
+                'up': 'up 0.3s ease-out'
             },
             fontFamily: {
                 'minecraft': ['var(--font-minecraft)'],
