@@ -4,6 +4,7 @@ import { TableCell, TableRow } from '@/components/ui/table';
 import { notify } from "@/core/notifications";
 import { useCartStore } from '@/stores/cart';
 import { TCart } from '@/types/cart';
+import { imagePath } from '@helpers/image-path';
 import { ItemDetails } from '@layout/item-details/item-details';
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import Image from 'next/image';
@@ -69,7 +70,7 @@ export const CartItem: FC<CartItemProps> = ({ item }) => {
                     {item.image ? (
                         <div className='flex items-center gap-22 font-bold text-white text-base'>
                             <Image
-                                src={item.image}
+                                src={imagePath(item.image)}
                                 alt=""
                                 width={80}
                                 height={80}
