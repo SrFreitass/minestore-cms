@@ -12,7 +12,6 @@ import { useCartStore } from '@/stores/cart';
 import { TItem } from '@/types/item';
 import { imagePath } from '@helpers/image-path';
 import { CardActionButtons } from '@layout/card/card-actions';
-import { name } from 'assert';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 
