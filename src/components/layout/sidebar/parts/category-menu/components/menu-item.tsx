@@ -1,4 +1,5 @@
 import { TSubCategories } from '@/types/categories';
+import { imagePath } from '@helpers/image-path';
 import { joinClasses } from '@helpers/join-classes';
 import { setCookie } from 'cookies-next';
 import Image from 'next/image';
@@ -63,7 +64,7 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
                     isActive && 'text-orange before:bg-orange'  
                 )}
             >
-                <CategoryImage image={image as string} isPageLink={isPageLink} />
+                <CategoryImage image={imagePath(image || '')} isPageLink={isPageLink} />
 
                 <span className={joinClasses('ml-6 font-bold', isActive && 'text-orange')}>
                     {name}

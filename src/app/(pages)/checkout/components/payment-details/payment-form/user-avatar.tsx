@@ -1,4 +1,5 @@
 import { useUserStore } from '@/stores/user';
+import { imagePath } from '@helpers/image-path';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -12,7 +13,7 @@ export function UserAvatar() {
         <>
             <span className="font-medium">{t('you-are-buying-as')}</span>
             <Image
-                src={user.avatar}
+                src={imagePath(user?.avatar || '')}
                 className="mt-4 h-auto w-auto flex-1"
                 width={128}
                 height={308}

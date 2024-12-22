@@ -10,7 +10,9 @@ import {
 } from '@/components/ui/dialog';
 import { useCartStore } from '@/stores/cart';
 import { TItem } from '@/types/item';
+import { imagePath } from '@helpers/image-path';
 import { CardActionButtons } from '@layout/card/card-actions';
+import { name } from 'assert';
 import Image from 'next/image';
 import { FC, useEffect, useState } from 'react';
 
@@ -51,8 +53,7 @@ export const ItemDetails: FC<DetailsProps> = ({ show, onHide, id, route }) => {
                 <div className='flex items-start gap-6'>
 
                     <Image
-                        // This is a placeholder image, replace it with the actual image, details?.image is the actual image
-                        src={details?.image || ""}
+                        src={imagePath(details?.image || "")}
                         alt={details?.name || ''}
                         width={250}
                         height={250}

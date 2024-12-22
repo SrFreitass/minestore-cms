@@ -2,6 +2,7 @@ import { getEndpoints } from "@/api";
 import { fetcher } from "@/api/client/fetcher";
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import { notify } from "@/core/notifications";
+import { imagePath } from "@/helpers/image-path";
 import { useCartStore } from "@/stores/cart";
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
@@ -86,7 +87,7 @@ export const DropmenuCartItem = ({ item }: { item: TItemCart }) => {
    return (<DropdownMenuItem onSelect={(e) => e.preventDefault()}>
       <div className="flex items-center gap-2 font-bold bg-[#31323B] pl-2 pr-4 rounded-lg w-full h-12">
          <div className="flex items-center w-36">
-            <Image src={item.image} alt={item.name} width={32} height={32} className="w-10"/>
+            <Image src={imagePath(item.image)} alt={item.name} width={32} height={32} className="w-10"/>
             <p>{item.name}</p>
          </div>
 

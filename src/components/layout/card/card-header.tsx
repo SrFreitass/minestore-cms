@@ -122,7 +122,7 @@ function CardHeaderImage({
     direction?: 'row' | 'col';
     className?: string;
 }) {
-    const image = imagePath(item.image);
+    const image = imagePath(item?.image || '');
     if (!image) return null;
 
     const cacheBuster = getModifiedCacheBuster(5);
