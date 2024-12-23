@@ -1,7 +1,6 @@
 import { getEndpoints } from '@/api';
 import { notify } from '@/core/notifications';
 import { TSettings } from '@/types/settings';
-import { getCacheBuster } from '@helpers/cache-buster';
 import axios from 'axios';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
@@ -72,8 +71,6 @@ export const HeroSection: FC<HeroSectionProps> = ({ settings }) => {
         navigator.clipboard.writeText(settings.server.ip);
         notify(`${t('copied-to-clipboard')}`, 'green');
     };
-
-    const cacheBuster = getCacheBuster();
 
     return (
         <div className="relative w-full flex-row items-center justify-center">

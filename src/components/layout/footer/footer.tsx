@@ -2,7 +2,6 @@
 
 import { Container } from '@/components/base/container/container';
 import { TSettings } from '@/types/settings';
-import { getCacheBuster } from '@helpers/cache-buster';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -53,7 +52,7 @@ function UsefulLinks({ settings }: { settings: TSettings }) {
 
 function Copyright({ settings }: { settings: TSettings }) {
     const t = useTranslations('footer');
-    const cacheBuster = getCacheBuster();
+
     return (
         <div className="flex flex-col items-start justify-start gap-6 text-start w-[55%] max-md:w-full">
             {/* <Image

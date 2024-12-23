@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button';
 import { useSettingsStore } from '@/stores/settings';
-import { getCacheBuster } from '@helpers/cache-buster';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -41,13 +40,10 @@ export function Content() {
 function BannerSection() {
     const t = useTranslations('home');
 
-    const cacheBuster = getCacheBuster();
-
-
     return (
         <div className="w-full">
             <Image
-               src={`/img/banner.png?${cacheBuster}`}
+               src={`/img/banner.png`}
                alt="Banner"
                width={1000}
                height={196}

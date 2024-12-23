@@ -4,7 +4,6 @@ import { Container } from '@/components/base/container/container';
 import { useCurrencyStore } from '@/stores/currency';
 import { useUserStore } from '@/stores/user';
 import { TSettings } from '@/types/settings';
-import { getModifiedCacheBuster } from '@helpers/cache-buster';
 import { convertToLocalCurrency } from '@helpers/convert-to-local-currency';
 import { Navbar } from '@layout/navbar/navbar';
 import Image from 'next/image';
@@ -23,7 +22,6 @@ type HeaderProps = {
 
 export const Header: FC<HeaderProps> = ({ settings, announcement }) => {
     const { user } = useUserStore();
-    const cacheBuster = getModifiedCacheBuster(5)
 
     announcement = announcement?.split("").map((char) => {
        if(!isNaN(Number(char)) || char === "%") {

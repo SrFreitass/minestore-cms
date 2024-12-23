@@ -2,7 +2,6 @@
 
 import { useSettingsStore } from '@/stores/settings';
 import { TCategories } from '@/types/categories';
-import { getCacheBuster } from '@helpers/cache-buster';
 import { useTranslations } from 'next-intl';
 import { FC } from 'react';
 import { MenuItem } from './components/menu-item';
@@ -14,7 +13,6 @@ type CategoryMenuProps = {
 export const CategoryMenu: FC<CategoryMenuProps> = ({ categories }) => {
     const t = useTranslations('sidebar');
     const { settings } = useSettingsStore();
-    const cacheBuster = getCacheBuster();
 
     return (
         <aside className="h-fit rounded-[10px] bg-card p-6 border-border border-2">

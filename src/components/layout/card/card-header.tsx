@@ -2,7 +2,6 @@ import { Price } from '@/components/base/price/price';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { TItem } from '@/types/item';
-import { getModifiedCacheBuster } from '@helpers/cache-buster';
 import { imagePath } from '@helpers/image-path';
 import { joinClasses } from '@helpers/join-classes';
 import { BadgeCheck, Check, Clock } from 'lucide-react';
@@ -124,9 +123,6 @@ function CardHeaderImage({
 }) {
     const image = imagePath(item?.image || '');
     if (!image) return null;
-
-    const cacheBuster = getModifiedCacheBuster(5);
-    const imageWithCacheBuster = `${image}?${cacheBuster}`;
 
     const imageSize = direction === 'row' ? 64 : 140;
 
