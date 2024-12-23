@@ -8,6 +8,7 @@ const removeProtocol = (url) => {
 
 const nextConfig = {
     images: {
+        unoptimized: true,
         remotePatterns: [
             {
                 hostname: 'mc-heads.net'
