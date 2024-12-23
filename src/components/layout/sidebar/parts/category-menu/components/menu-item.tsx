@@ -54,6 +54,12 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
         };
     }, [expand]);
 
+    useEffect(() => {
+        if (isActive) {
+            setExpand(true);
+        }
+    }, [pathname, isActive]);
+
     return (
         <li className="cursor-pointer overflow-hidden rounded-[10px] bg-accent/90" ref={menuRef}>
             <div
