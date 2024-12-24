@@ -1,13 +1,13 @@
 'use client';
 
-import { FC, useState } from 'react';
 import { Price } from '@/components/base/price/price';
+import { notify } from '@/core/notifications';
+import { useUserStore } from '@/stores/user';
 import { TSettings } from '@/types/settings';
+import { imagePath } from '@helpers/image-path';
 import { ItemDetails } from '@layout/item-details/item-details';
 import Image from 'next/image';
-import { useUserStore } from '@/stores/user';
-import { notify } from '@/core/notifications';
-import { imagePath } from '@helpers/image-path';
+import { FC, useState } from 'react';
 
 type FeaturedDealProps = {
     item: TSettings['featuredDeal_items'][number];
@@ -39,7 +39,7 @@ export const FeaturedDeal: FC<FeaturedDealProps> = ({ item }) => {
                 role="button"
                 tabIndex={0}
                 onKeyDown={handleKeyDown}
-                className="cursor-pointer flex-col items-center gap-2 rounded border-2 border-accent-foreground/10 bg-accent p-3 md:flex-row md:gap-4 md:p-6"
+                className="cursor-pointer flex-col items-center gap-2 rounded border border-accent-foreground/10 bg-accent p-3 md:flex-row md:gap-4 md:p-6"
             >
                 <FeaturedImage item={item} />
 

@@ -50,7 +50,7 @@ export function CardHeader({ item, direction, setShowModal }: CardHeaderProps) {
             />
             <div className={direction === 'col' ? 'text-center' : 'text-center md:text-start'}>
                 {direction === 'row' ? <QuantityBadge item={item} className="mb-2" /> : null}
-                <h3 className="text-xl break-words break-all font-bold text-accent-foreground">{item.name}</h3>
+                <h3 className="text-xl break-words break-all font-bold text-white">{item.name}</h3>
                <Price
                   originalPrice={item.original_price}
                   discount={item.discount}

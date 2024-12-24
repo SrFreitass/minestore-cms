@@ -58,7 +58,7 @@ export default async function Page({ params }: { params: { name: string[] } }) {
     };
 
     return (
-        <div className="w-full flex-col bg-card rounded-lg border">
+        <div className="w-full flex-col bg-card rounded-lg border-border border">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -120,7 +120,6 @@ function ProductListContainer({ items, category, subcategory }: TProductListCont
                     item={item}
                     direction={categoryListing ? 'row' : 'col'}
                     className={joinClasses({ 'w-full': categoryListing })}
-                    isCash={!category.is_comparison}
                 />
             ))}
         </div>

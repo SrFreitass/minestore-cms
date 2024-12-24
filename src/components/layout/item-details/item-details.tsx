@@ -60,9 +60,7 @@ export const ItemDetails: FC<DetailsProps> = ({ show, onHide, id, route }) => {
                     />
 
                     <div>
-                        <h3 className='font-bold text-white'>O que está incluso:</h3>
-                        {/* (insert ul > li tags here on CMS) delete this next line */}
-                        <ul className='text-white' dangerouslySetInnerHTML={{ __html: details?.description || '' }}/>
+                        <div className='text-white' dangerouslySetInnerHTML={{ __html: details?.description || '' }}/>
                     </div>
                 </div>
 

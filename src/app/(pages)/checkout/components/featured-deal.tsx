@@ -1,11 +1,11 @@
 'use client';
 
-import { FC, useEffect, useState } from 'react';
 import { getEndpoints } from '@/api';
 import { fetcher } from '@/api/client/fetcher';
-import { Card } from '@layout/card/card';
 import { TItem } from '@/types/item';
+import { Card } from '@layout/card/card';
 import { useTranslations } from 'next-intl';
+import { FC, useEffect, useState } from 'react';
 
 const { getRecommends } = getEndpoints(fetcher);
 
@@ -26,7 +26,7 @@ export const FeaturedDeal: FC = () => {
         <div>
             <h3 className="text-center text-[30px] uppercase text-primary">{t('featured-deal')}</h3>
 
-            <hr className="border-2 border-primary" />
+            <hr className="border border-primary" />
 
             <div className="mt-6 grid gap-4">
                 {recommends.map((item, index) => (

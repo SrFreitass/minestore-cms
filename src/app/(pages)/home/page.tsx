@@ -9,7 +9,7 @@ export default async function Home() {
 
     return (
         <>
-            <div className="flex-col rounded-[10px] bg-card border-border border-2">
+            <div className="flex-col rounded-[10px] bg-card border-border border">
                 <div className="p-4">
                     <Content />
                 </div>

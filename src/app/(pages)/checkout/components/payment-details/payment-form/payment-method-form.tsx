@@ -68,7 +68,7 @@ export const PaymentMethodForm = ({ items }: PaymentMethodFormProps) => {
                                />
                                <Label
                                   htmlFor={method.name}
-                                  className="flex flex-col items-center justify-between rounded-md border-2 border-[#20212C] py-2 transition-all hover:bg-[#31323B] hover:text-white peer-data-[state=checked]:border-white
+                                  className="flex flex-col items-center justify-between rounded-md border border-[#20212C] py-2 transition-all hover:bg-[#31323B] hover:text-white peer-data-[state=checked]:border-white
                                         peer-data-[state=checked]:bg-[#31323B] [&:has([data-state=checked])]:border-primary
                                         font-bold text-lg
                                         "

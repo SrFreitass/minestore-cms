@@ -43,17 +43,6 @@ export const MenuItem: FC<MenuItemProps> = ({ name, image, url, subItems = [], i
         }
     };
 
-
-    useEffect(() => {
-        if (expand) {
-            document.addEventListener('click', handleOutsideClick);
-        }
-
-        return () => {
-            document.removeEventListener('click', handleOutsideClick);
-        };
-    }, [expand]);
-
     useEffect(() => {
         if (isActive) {
             setExpand(true);
