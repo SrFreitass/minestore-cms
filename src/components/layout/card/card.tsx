@@ -30,9 +30,21 @@ export function Card({ item, direction = 'col', hideButton, showProduct = true }
     const path = usePathname();
 
     return (
-       <div className={cn('relative', direction === 'col' ? 'h-full' : '', '!border-none')} title={"Clique para saber mais"}>
+        <div
+            className={cn(
+                'relative',
+                direction === 'col' ? 'h-full' : '',
+                '!border-none',
+                'group flex justify-center hover:cursor-pointer'
+            )}
+            title={'Clique para saber mais'}
+        >
+            <span className="absolute -mt-[17.5px] hidden rounded-xl bg-[#0A0A0C] p-2 font-medium text-white group-hover:block group-hover:animate-up">
+                Clique p/ saber mais
+                <span className="absolute right-[4.5rem] top-7 z-0 h-4 w-4 rotate-45 transform bg-[#0A0A0C]"></span>
+            </span>
             <CardLayout direction={direction} className={item.featured ? 'featured-package' : ''}>
-                <CardHeader item={item} direction={direction} setShowModal={setShowModal}/>
+                <CardHeader item={item} direction={direction} setShowModal={setShowModal} />
                 <CardActions
                     hideButton={hideButton}
                     item={item}
