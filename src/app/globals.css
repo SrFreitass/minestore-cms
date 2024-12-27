@@ -157,13 +157,33 @@ body {
     }
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .featured-package {
-    border: 1px solid hsl(var(--primary));
-    animation: 10s featured-shadow infinite;
+    border: 2px solid transparent;
+    background: 
+        linear-gradient(#25262f, #25262f) padding-box,
+        linear-gradient(var(--angle), #9c15eb, #9129ce, #6c1c9b00, #3a155000) border-box;
+    background-origin: border-box;
+    animation: rotate 3s linear infinite;
 }
 
+@keyframes rotate {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
 
-
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
 .swiper-button-next::after, .swiper-button-prev::after {
     color: hsl(var(--accent-foreground));
     transform: scale(0.4);

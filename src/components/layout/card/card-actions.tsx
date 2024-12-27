@@ -204,7 +204,7 @@ function RemoveFromCartButton({ isItemInCart, item, displayFull }: CardActionBut
         <Button
             disabled={loading}
             onClick={handleItem}
-            className={joinClasses('h-[50px] gap-2', !displayFull && 'min-w-[180px]')}
+            className={joinClasses('h-[50px] gap-2', 'min-w-[214px]')}
         >
             <ButtonIcon isItemInCart={isItemInCart} loading={loading} />
             {t('remove')}

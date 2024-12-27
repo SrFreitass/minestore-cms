@@ -31,7 +31,7 @@ export function CardHeader({ item, direction, setShowModal }: CardHeaderProps) {
 
     return (
         <div className={cardHeaderClasses} onClick={() => setShowModal(true)}>
-            <FeaturedBadge item={item} className="absolute -top-8" />
+            <FeaturedBadge item={item} className="absolute -top-7 animate-up group-hover:hidden" />
             {
                 item.last_units ?
                 <div className='relative bottom-8'>

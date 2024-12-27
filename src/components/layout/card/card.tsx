@@ -39,7 +39,7 @@ export function Card({ item, direction = 'col', hideButton, showProduct = true }
             )}
             title={'Clique para saber mais'}
         >
-            <span className="absolute -mt-[17.5px] hidden rounded-xl bg-[#0A0A0C] p-2 font-medium text-white group-hover:block group-hover:animate-up">
+            <span className="z-10 absolute -mt-[17.6px] hidden rounded-xl bg-[#0A0A0C] p-2 font-medium text-white group-hover:block group-hover:animate-up">
                 Clique p/ saber mais
                 <span className="absolute right-[4.5rem] top-7 z-0 h-4 w-4 rotate-45 transform bg-[#0A0A0C]"></span>
             </span>

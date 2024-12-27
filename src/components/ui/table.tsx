@@ -87,7 +87,7 @@ const TableCell = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <td
     ref={ref}
-    className={cn("p-4 align-middle [&:has([role=checkbox])]:pr-0", className)}
+    className={cn("p-4 align-middle [&:has([role=checkbox])]:pr-0 max-[1520px]:border-r", className)}
     {...props}
   />
 ))
@@ -106,7 +106,7 @@ const TableCaption = React.forwardRef<
 TableCaption.displayName = "TableCaption"
 
 export {
-  Table, TableBody, TableCaption, TableCell, TableFooter,
-  TableHead, TableHeader, TableRow
+    Table, TableBody, TableCaption, TableCell, TableFooter,
+    TableHead, TableHeader, TableRow
 }
 
