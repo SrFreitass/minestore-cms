@@ -44,14 +44,13 @@ export const ItemDetails: FC<DetailsProps> = ({ show, onHide, id, route }) => {
 
     return (
         <Dialog open={show} onOpenChange={onHide}>
-            <DialogContent className="w-full max-w-[800px] bg-royal-sec">
+            <DialogContent className="w-full max-w-[800px] bg-royal-sec max-sm:rounded-lg">
                 <DialogHeader className="">
                     <DialogTitle className="text-card-foreground text-white">{details?.name}</DialogTitle>
                 </DialogHeader>
-                <div className='flex items-start gap-6'>
+                <div className='flex items-start gap-6 max-sm:flex-col max-sm:items-center'>
 
                     <Image
-                        // This is a placeholder image, replace it with the actual image, details?.image is the actual image
                         src={details?.image || ""}
                         alt={details?.name || ''}
                         width={250}
