@@ -91,12 +91,12 @@ export const Comparison = ({ categoryItems, category, subCategory }: ComparisonP
                                         className={`sticky left-0 z-10 flex w-[200px] items-center justify-center ${bgColor} group relative transition-colors`}
                                     >
                                         <span
-                                            className={`py-1 absolute ${comparison.description && comparison.description.length >= 20 ? '-mt-12' : '-mt-7'} hidden w-[102%] rounded-md bg-royal-sec px-4 text-white transition-all group-hover:block group-hover:animate-up`}
+                                            className={`z-10 py-1 absolute ${comparison.description && comparison.description.length >= 20 ? '-mt-12' : '-mt-7'} hidden w-[102%] rounded-md bg-royal-sec px-4 text-white transition-all group-hover:block group-hover:animate-up`}
                                             style={{ animationFillMode: 'forwards' }}
                                         >
                                             {comparison.description}
                                         </span>
-                                        <span className={`hidden absolute left-[5.5rem] ${comparison.name.length >= 20 ? 'top-1' : '-top-2'} z-0 h-4 w-4 rotate-45 transform bg-royal-sec group-hover:block group-hover:animate-up`}></span>
+                                        <span className={`-z-10 hidden absolute left-[5.5rem] ${comparison.name.length >= 20 ? 'top-1' : '-top-2'} z-0 h-4 w-4 rotate-45 transform bg-royal-sec group-hover:block group-hover:animate-up`}></span>
                                         <p className="w-full font-medium text-white">
                                             {comparison.name}
                                         </p>
